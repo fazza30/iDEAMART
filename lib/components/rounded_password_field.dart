@@ -18,10 +18,6 @@ class RoundedPasswordField extends StatelessWidget {
         cursorColor: kPrimaryColor,
         decoration: InputDecoration(
           hintText: "Masukkan Password Anda",
-          icon: Icon(
-            Icons.lock,
-            color: kPrimaryColor,
-          ),
           suffixIcon: Icon(
             Icons.visibility,
             color: kPrimaryColor,

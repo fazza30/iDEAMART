@@ -6,7 +6,7 @@ import 'package:flutter_auth/components/already_have_an_account_acheck.dart';
 import 'package:flutter_auth/components/rounded_button.dart';
 import 'package:flutter_auth/components/rounded_input_field.dart';
 import 'package:flutter_auth/components/rounded_password_field.dart';
-import 'package:flutter_svg/svg.dart';
+// import 'package:flutter_svg/svg.dart';
 
 class Body extends StatelessWidget {
   const Body({
@@ -22,22 +22,37 @@ class Body extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              "SELAMAT DATANG DI iDEAMART",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+              "LOGIN",
+              style: TextStyle(fontFamily: 'SourceSansPro' ,fontWeight: FontWeight.bold, fontSize: 30),
             ),
             SizedBox(height: size.height * 0.03),
-            SvgPicture.asset(
-              "assets/icons/login.svg",
-              height: size.height * 0.35,
+            // SvgPicture.asset(
+            //   "assets/icons/login.svg",
+            //   height: size.height * 0.35,
+            // ),
+            // SizedBox(height: size.height * 0.03),
+            Text(
+              'No. Telepon',
+              style: TextStyle(
+                fontFamily: 'SourceSansPro',
+                fontSize: 16
+              ),
             ),
-            SizedBox(height: size.height * 0.03),
             RoundedInputField(
               hintText: "Masukkan Nomor Telepon Anda",
               onChanged: (value) {},
             ),
+            Text(
+              'Password',
+              style: TextStyle(
+                fontFamily: 'SourceSansPro',
+                fontSize: 16
+              ),
+            ),
             RoundedPasswordField(
               onChanged: (value) {},
             ),
+            SizedBox(height: size.height * 0.2),
             RoundedButton(
               text: "MASUK",
               press: () {
