@@ -6,7 +6,6 @@ import 'package:flutter_auth/components/already_have_an_account_acheck.dart';
 import 'package:flutter_auth/components/rounded_button.dart';
 import 'package:flutter_auth/components/rounded_input_field.dart';
 import 'package:flutter_auth/components/rounded_password_field.dart';
-// import 'package:flutter_svg/svg.dart';
 
 class Body extends StatelessWidget {
   const Body({
@@ -26,47 +25,42 @@ class Body extends StatelessWidget {
               style: TextStyle(fontFamily: 'SourceSansPro' ,fontWeight: FontWeight.bold, fontSize: 30),
             ),
             SizedBox(height: size.height * 0.03),
-            // SvgPicture.asset(
-            //   "assets/icons/login.svg",
-            //   height: size.height * 0.35,
-            // ),
-            // SizedBox(height: size.height * 0.03),
-            Text(
-              'No. Telepon',
-              style: TextStyle(
-                fontFamily: 'SourceSansPro',
-                fontSize: 16
-              ),
+            
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  'No. Telepon',
+                  style: TextStyle(
+                    fontFamily: 'SourceSansPro',
+                    fontSize: 16
+                  ),
+                ),
+                RoundedInputField(
+                  hintText: "Masukkan Nomor Telepon Anda",
+                  onChanged: (value) {},
+                ),
+              ],
             ),
-            RoundedInputField(
-              hintText: "Masukkan Nomor Telepon Anda",
-              onChanged: (value) {},
+            
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  'Password',
+                  style: TextStyle(
+                    fontFamily: 'SourceSansPro',
+                    fontSize: 16
+                  ),
+                ),
+                RoundedPasswordField(
+                  onChanged: (value) {},
+                )
+              ]
             ),
-            Text(
-              'Password',
-              style: TextStyle(
-                fontFamily: 'SourceSansPro',
-                fontSize: 16
-              ),
-            ),
-            RoundedPasswordField(
-              onChanged: (value) {},
-            ),
-            SizedBox(height: size.height * 0.2),
-            RoundedButton(
-              text: "MASUK",
-              press: () {
-                Navigator.push(
-                  context, 
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return HomeScreen();
-                    }
-                  )
-                );
-              },
-            ),
-            SizedBox(height: size.height * 0.03),
+            
+            SizedBox(height: size.height * 0.4),
+
             AlreadyHaveAnAccountCheck(
               press: () {
                 Navigator.push(
@@ -79,6 +73,20 @@ class Body extends StatelessWidget {
                 );
               },
             ),
+            
+            RoundedButton(
+              text: "MASUK",
+              press: () {
+                Navigator.push(
+                  context, 
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return HomeScreen();
+                    }
+                  )
+                );
+              },
+            )
           ],
         ),
       ),

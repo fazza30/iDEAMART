@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_auth/Screens/Home/components/grid_button.dart';
 import 'package:flutter_auth/Screens/Home/components/header_with_logo.dart';
 
 class Body extends StatelessWidget {
@@ -8,7 +9,9 @@ class Body extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         children: <Widget>[
-          HeaderWithLogo(size: size)
+          HeaderWithLogo(size: size),
+          RowButton1(),
+          RowButton2(),
         ],
       ),
     );

@@ -37,11 +37,12 @@ class HeaderWithLogo extends StatelessWidget {
                   'Hai, Username !',
                   style: Theme.of(context).textTheme.headline5.copyWith(
                     color: Colors.white,
+                    fontFamily: "SourceSansPro",
                     fontWeight: FontWeight.bold
                   ),
                 ),
                 Spacer(),
-                Icon(Icons.notifications, color: Colors.white,)
+                Icon(Icons.notifications, size: 30, color: Colors.white,)
               ],
             ),
           ),
@@ -72,9 +73,15 @@ class HeaderWithLogo extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     SizedBox(width: size.width * 0.01),
-                    Text('Logo UIN'),
-                    SizedBox(width: size.width * 0.2),
-                    Text('Logo Pusat Karir')
+                    SizedBox(
+                      width: 100,
+                      child: Image.asset("assets/images/logo-uin.png"),
+                    ),
+                    SizedBox(width: size.width * 0.1),
+                    SizedBox(
+                      width: 140,
+                      child: Image.asset("assets/images/pusat-karir-uin.png"),
+                    ),
                   ],
                 ),
               ),

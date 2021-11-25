@@ -18,6 +18,7 @@ class OrDivider extends StatelessWidget {
               style: TextStyle(
                 color: kPrimaryColor,
                 fontWeight: FontWeight.w600,
+                fontFamily: "SourceSansPro"
               ),
             ),
           ),

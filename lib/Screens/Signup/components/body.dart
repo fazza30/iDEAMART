@@ -4,9 +4,8 @@ import 'package:flutter_auth/Screens/Signup/components/background.dart';
 import 'package:flutter_auth/components/already_have_an_account_acheck.dart';
 import 'package:flutter_auth/components/rounded_button.dart';
 import 'package:flutter_auth/components/rounded_input_field.dart';
-import 'package:flutter_auth/components/rounded_name_field.dart';
+import 'package:flutter_auth/components/name_field.dart';
 import 'package:flutter_auth/components/rounded_password_field.dart';
-import 'package:flutter_svg/svg.dart';
 
 class Body extends StatelessWidget {
   @override
@@ -18,30 +17,60 @@ class Body extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              "BUAT AKUN ANDA SEKARANG",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+              "REGISTER",
+              style: TextStyle(fontFamily: 'SourceSansPro' ,fontWeight: FontWeight.bold, fontSize: 30),
             ),
             SizedBox(height: size.height * 0.03),
-            SvgPicture.asset(
-              "assets/icons/signup.svg",
-              height: size.height * 0.35,
+            
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                FirstNameField(
+                  hintText: "John",
+                  onChanged: (value) {},
+                ),
+                SizedBox(width: size.width * 0.03),
+                LastNameField(
+                  hintText: "Doe",
+                  onChanged: (value) {},
+                ),
+              ],  
             ),
-            RoundedNameField(
-              hintText: "Masukkan Nama Anda",
-              onChanged: (value) {},
+            
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  "No. Telepon", 
+                  style: TextStyle(
+                    fontFamily: "SourceSansPro"
+                  )
+                ),
+                RoundedInputField(
+                  hintText: "Masukkan Nomor Telepon Anda",
+                  onChanged: (value) {},
+                ),
+              ],  
             ),
-            RoundedInputField(
-              hintText: "Masukkan Nomor Telepon Anda",
-              onChanged: (value) {},
+            
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  "Password",
+                  style: TextStyle(
+                    fontFamily: "SourceSansPro"
+                  )
+                ),
+                RoundedPasswordField(
+                  onChanged: (value) {},
+                ),
+              ],
             ),
-            RoundedPasswordField(
-              onChanged: (value) {},
-            ),
-            RoundedButton(
-              text: "SIGNUP",
-              press: () {},
-            ),
-            SizedBox(height: size.height * 0.03),
+            
+            SizedBox(height: size.height * 0.3),
+            
             AlreadyHaveAnAccountCheck(
               login: false,
               press: () {
@@ -55,6 +84,12 @@ class Body extends StatelessWidget {
                 );
               },
             ),
+            
+            RoundedButton(
+              text: "SIGNUP",
+              press: () {},
+            ),
+            
           ],
         ),
       ),

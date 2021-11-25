@@ -18,7 +18,7 @@ class Body extends StatelessWidget {
           children: <Widget>[
             Text(
               "iDEAMART",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, fontFamily: "SourceSansPro"),
             ),
             // SizedBox(height: size.height * 0.05),
             // SvgPicture.asset(
