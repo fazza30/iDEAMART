@@ -34,7 +34,7 @@ class HeaderWithLogo extends StatelessWidget {
             child: Row(
               children: <Widget>[
                 Text(
-                  'Hai, Username !',
+                  'Hai, John !',
                   style: Theme.of(context).textTheme.headline5.copyWith(
                     color: Colors.white,
                     fontFamily: "SourceSansPro",

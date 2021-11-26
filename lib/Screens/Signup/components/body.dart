@@ -48,7 +48,7 @@ class Body extends StatelessWidget {
                   )
                 ),
                 RoundedInputField(
-                  hintText: "Masukkan Nomor Telepon Anda",
+                  hintText: "081234567890",
                   onChanged: (value) {},
                 ),
               ],  
@@ -74,7 +74,7 @@ class Body extends StatelessWidget {
             AlreadyHaveAnAccountCheck(
               login: false,
               press: () {
-                Navigator.push(
+                Navigator.pop(
                   context,
                   MaterialPageRoute(
                     builder: (context) {
@@ -87,7 +87,16 @@ class Body extends StatelessWidget {
             
             RoundedButton(
               text: "SIGNUP",
-              press: () {},
+              press: () {
+                Navigator.pop(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return LoginScreen();
+                    },
+                  ),
+                );
+              },
             ),
             
           ],

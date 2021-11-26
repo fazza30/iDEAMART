@@ -37,7 +37,7 @@ class Body extends StatelessWidget {
                   ),
                 ),
                 RoundedInputField(
-                  hintText: "Masukkan Nomor Telepon Anda",
+                  hintText: "081234567890",
                   onChanged: (value) {},
                 ),
               ],

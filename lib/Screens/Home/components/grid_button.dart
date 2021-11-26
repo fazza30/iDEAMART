@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_auth/Screens/Quiz/quiz_screen.dart';
 import 'package:flutter_auth/constants.dart';
 
 class GridButton extends StatelessWidget {
@@ -80,7 +81,16 @@ class RowButton1 extends StatelessWidget {
             icon: Icons.lightbulb,
             color: Colors.red,
             title: "Survei Karir",
-            press: () {},
+            press: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return QuizScreen();
+                  }
+                )
+              );
+            },
           ),
           GridButton(
             icon: Icons.help,
