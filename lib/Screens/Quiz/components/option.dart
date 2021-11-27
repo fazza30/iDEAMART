@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_auth/constants.dart';
 import 'package:flutter_auth/controllers/quiz_controller.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 class Option extends StatelessWidget {
@@ -45,14 +46,7 @@ class Option extends StatelessWidget {
                     fontFamily: "SourceSansPro"
                   ),
                 ),
-                Container(
-                  height: 20,
-                  width: 20,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(50),
-                    border: Border.all(color: kBlackColor),
-                  ),
-                )
+                SvgPicture.asset("$icon", width: 25, height: 25),
               ],
             ),
           ),

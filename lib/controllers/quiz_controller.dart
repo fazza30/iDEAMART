@@ -22,7 +22,7 @@ class QuestionController extends GetxController
         id: question['id'],
         question: question['question'],
         options: question['options'],
-        icons: question['icon'],
+        icons: question['icons'],
         answer: question['answer_index']
       ),
     )
@@ -90,6 +90,7 @@ class QuestionController extends GetxController
       _animationController.forward().whenComplete(nextQuestion);
     } else {
       Get.to(() => ResultScreen());
+      _animationController.reset();
     }
   }
 
