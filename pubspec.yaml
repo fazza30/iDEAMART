@@ -25,6 +25,8 @@ dependencies:
   cupertino_icons: ^0.1.2
   flutter_svg: ^0.19.1
   get: ^3.24.0
+  mysql1: ^0.19.2
+  http: ^0.13.4
 
 dev_dependencies:
   flutter_test:

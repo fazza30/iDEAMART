@@ -11,10 +11,9 @@ const List sample_data = [
   {
     "id": 1,
     "question": "Tujuan dari Pusat Karier telah dipahami dengan baik oleh seluruh pengguna layanan",
-    "options": ['Strongly Agreee', 'Agree', 'Neutral', 'Disagree', 'Strongly Disagree'],
+    "options": ['Sangat Setuju', 'Setuju', 'Tidak Setuju', 'Sangat Tidak Setuju'],
     "icons": ['assets/icons/strongly-agree.svg',
               'assets/icons/agree.svg',
-              'assets/icons/neutral.svg',
               'assets/icons/disagree.svg',
               'assets/icons/strongly-disagree.svg'],
     "answer_index": 1,
@@ -22,10 +21,9 @@ const List sample_data = [
   {
     "id": 2,
     "question": "Tujuan dari Pusat Karier telah dipahami dengan baik oleh seluruh pengguna layanan",
-    "options": ['Strongly Agreee', 'Agree', 'Neutral', 'Disagree', 'Strongly Disagree'],
+    "options": ['Sangat Setuju', 'Setuju', 'Tidak Setuju', 'Sangat Tidak Setuju'],
     "icons": ['assets/icons/strongly-agree.svg',
               'assets/icons/agree.svg',
-              'assets/icons/neutral.svg',
               'assets/icons/disagree.svg',
               'assets/icons/strongly-disagree.svg'],
     "answer_index": 1,
@@ -33,12 +31,12 @@ const List sample_data = [
   {
     "id": 3,
     "question": "Tujuan dari Pusat Karier telah dipahami dengan baik oleh seluruh pengguna layanan",
-    "options": ['Strongly Agreee', 'Agree', 'Neutral', 'Disagree', 'Strongly Disagree'],
+    "options": ['Sangat Setuju', 'Setuju', 'Tidak Setuju', 'Sangat Tidak Setuju'],
     "icons": ['assets/icons/strongly-agree.svg',
               'assets/icons/agree.svg',
-              'assets/icons/neutral.svg',
               'assets/icons/disagree.svg',
               'assets/icons/strongly-disagree.svg'],
     "answer_index": 1,
-  }
+  },
+  
 ];
