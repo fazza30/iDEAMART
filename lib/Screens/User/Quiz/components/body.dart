@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_auth/Screens/Quiz/components/question_card.dart';
+import 'package:flutter_auth/Screens/User/Quiz/components/question_card.dart';
 import 'package:flutter_auth/constants.dart';
 import 'package:flutter_auth/controllers/quiz_controller.dart';
 

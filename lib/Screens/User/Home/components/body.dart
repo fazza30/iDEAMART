@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_auth/Screens/Home/components/grid_button.dart';
-import 'package:flutter_auth/Screens/Home/components/header_with_logo.dart';
+import 'package:flutter_auth/Screens/User/Home/components/grid_button.dart';
+import 'package:flutter_auth/Screens/User/Home/components/header_with_logo.dart';
 
 class Body extends StatelessWidget {
   @override

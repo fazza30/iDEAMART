@@ -64,7 +64,7 @@ flutter:
         - asset: assets\fonts\SourceSansPro-Regular.ttf
     - family: HindSiliguri
       fonts:
-        - asset: fonts/HindSiliguri-Regular.ttf
+        - asset: assets\fonts\HindSiliguri-Regular.ttf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

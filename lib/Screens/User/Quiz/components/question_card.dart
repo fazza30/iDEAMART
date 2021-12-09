@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_auth/Screens/Quiz/components/option.dart';
+import 'package:flutter_auth/Screens/User/Quiz/components/option.dart';
 import 'package:flutter_auth/constants.dart';
 import 'package:flutter_auth/controllers/quiz_controller.dart';
 import 'package:flutter_auth/models/Questions.dart';

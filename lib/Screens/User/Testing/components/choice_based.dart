@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_auth/Screens/Quiz/quiz_screen.dart';
+import 'package:flutter_auth/Screens/User/Quiz/quiz_screen.dart';
 
 class ChoiceBased extends StatefulWidget {
   const ChoiceBased({Key key}) : super(key: key);

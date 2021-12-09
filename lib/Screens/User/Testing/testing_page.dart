@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_auth/Screens/Testing/components/choice_based.dart';
-import 'package:flutter_auth/Screens/Testing/components/header_with_logo.dart';
-import 'package:flutter_auth/Screens/Testing/components/mandatory.dart';
+import 'package:flutter_auth/Screens/User/Testing/components/choice_based.dart';
+import 'package:flutter_auth/Screens/User/Testing/components/header_with_logo.dart';
+import 'package:flutter_auth/Screens/User/Testing/components/mandatory.dart';
 
 class TestingPage extends StatefulWidget {
   const TestingPage({Key key}) : super(key: key);
