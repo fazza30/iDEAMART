@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_auth/Screens/User/Quiz/quiz_screen.dart';
+import 'package:flutter_auth/Screens/User/Testing/testing_page.dart';
 
 class Mandatory extends StatefulWidget {
   const Mandatory({
@@ -47,7 +47,7 @@ class _MandatoryState extends State<Mandatory> {
                 await Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => QuizScreen(),
+                    builder: (context) => TestingPage(),
                   ),
                 );
               },
@@ -87,7 +87,7 @@ class _MandatoryState extends State<Mandatory> {
                 await Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => QuizScreen(),
+                    builder: (context) => TestingPage(),
                   ),
                 );
               },
@@ -127,7 +127,7 @@ class _MandatoryState extends State<Mandatory> {
                 await Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => QuizScreen(),
+                    builder: (context) => TestingPage(),
                   ),
                 );
               },
@@ -167,7 +167,7 @@ class _MandatoryState extends State<Mandatory> {
                 await Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => QuizScreen(),
+                    builder: (context) => TestingPage(),
                   ),
                 );
               },
@@ -207,7 +207,7 @@ class _MandatoryState extends State<Mandatory> {
                 await Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => QuizScreen(),
+                    builder: (context) => TestingPage(),
                   ),
                 );
               },
@@ -247,7 +247,7 @@ class _MandatoryState extends State<Mandatory> {
                 await Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => QuizScreen(),
+                    builder: (context) => TestingPage(),
                   ),
                 );
               },

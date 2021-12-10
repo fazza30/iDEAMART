@@ -56,7 +56,7 @@ class Body extends StatelessWidget {
               SizedBox(height: 25),
               Expanded(
                 child: PageView.builder(
-                  physics: NeverScrollableScrollPhysics(),
+                  // physics: NeverScrollableScrollPhysics(),
                   controller: _questionController.pageController,
                   onPageChanged: _questionController.updateTheQnNum,
                   itemCount: _questionController.questions.length,

@@ -1,92 +1,91 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_auth/constants.dart';
 
-class HeaderWithLogo extends StatelessWidget {
-  const HeaderWithLogo({
-    Key key,
-    @required this.size,
-  }) : super(key: key);
+class HeaderWithLogo extends StatefulWidget {
+  const HeaderWithLogo({Key key}) : super(key: key);
 
-  final Size size;
+  @override
+  _HeaderWithLogoState createState() => _HeaderWithLogoState();
+}
 
+class _HeaderWithLogoState extends State<HeaderWithLogo> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: kDefaultPadding * 2.5),
-      height: size.height * 0.2,
+      width: double.infinity,
+      height: 150,
+      decoration: BoxDecoration(
+        color: Color(0xFF239BD8),
+        borderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(55),
+          bottomRight: Radius.circular(55),
+          topLeft: Radius.circular(0),
+          topRight: Radius.circular(0),
+        ),
+      ),
       child: Stack(
-        children: <Widget>[
-          // Header
-          Container(
-            padding: EdgeInsets.only(
-              left: kDefaultPadding,
-              right: kDefaultPadding,
-              bottom: 86 + kDefaultPadding
-            ),
-            height: size.height * 0.2 - 27,
-            decoration: BoxDecoration(
-              color: kPrimaryColor,
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(65),
-                bottomRight: Radius.circular(65),
-              ),
-            ),
+        children: [
+          Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(30, 10, 30, 0),
             child: Row(
-              children: <Widget>[
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
                 Text(
                   'Hai, John !',
                   style: Theme.of(context).textTheme.headline5.copyWith(
+                    fontFamily: 'SourceSansPro',
                     color: Colors.white,
-                    fontFamily: "SourceSansPro",
-                    fontWeight: FontWeight.bold
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
-                Spacer(),
-                Icon(Icons.notifications, size: 30, color: Colors.white,)
+                Icon(
+                  Icons.notifications,
+                  color: Colors.white,
+                  size: 30,
+                )
               ],
             ),
           ),
-          
-          // Kotak Logo
-          Positioned(
-            bottom: 0,
-            left: 0,
-            right: 0,
-            child: Container(
-              margin: EdgeInsets.symmetric(horizontal: kDefaultPadding),
-              height: 104,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(20),
-                boxShadow: [
-                  BoxShadow(
-                    offset: Offset(0, 2),
-                    blurRadius: 50,
-                    color: kPrimaryColor.withOpacity(0.23)
-                  ),
-                ],
+          Align(
+            alignment: AlignmentDirectional(0, 5),
+            child: Material(
+              color: Colors.transparent,
+              elevation: 10,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(30),
               ),
               child: Container(
-                margin: EdgeInsets.symmetric(horizontal: kDefaultPadding),
-                padding: EdgeInsets.symmetric(horizontal: kDefaultPadding),
+                width: 375,
+                height: 127,
+                decoration: BoxDecoration(
+                  color: Color(0xFFEEEEEE),
+                  borderRadius: BorderRadius.circular(30),
+                  border: Border.all(
+                    color: Colors.transparent,
+                  ),
+                ),
                 child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    SizedBox(width: size.width * 0.01),
-                    SizedBox(
+                    Image.asset(
+                      'assets/images/logo-uin.png',
                       width: 100,
-                      child: Image.asset("assets/images/logo-uin.png"),
+                      height: 100,
+                      fit: BoxFit.contain,
                     ),
-                    SizedBox(width: size.width * 0.1),
-                    SizedBox(
-                      width: 140,
-                      child: Image.asset("assets/images/pusat-karir-uin.png"),
-                    ),
+                    Image.asset(
+                      'assets/images/pusat-karir-uin.png',
+                      width: 200,
+                      height: 80,
+                      fit: BoxFit.contain,
+                    )
                   ],
                 ),
               ),
             ),
-          ),
+          )
         ],
       ),
     );

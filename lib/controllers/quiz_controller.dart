@@ -49,7 +49,7 @@ class QuestionController extends GetxController
         update();
       });
 
-    _animationController.forward().whenComplete(nextQuestion);
+    // _animationController.forward().whenComplete(nextQuestion);
 
     _pageController = PageController();
 
@@ -59,7 +59,7 @@ class QuestionController extends GetxController
   @override
   void onClose() {
     super.onClose();
-    _animationController.dispose();
+    _animationController.reset();
     _pageController.dispose();
   }
 
@@ -87,7 +87,7 @@ class QuestionController extends GetxController
       _animationController.reset();
 
       // kembali jalankan progressBar
-      _animationController.forward().whenComplete(nextQuestion);
+      // _animationController.forward().whenComplete(nextQuestion);
     } else {
       Get.to(() => ResultScreen());
       _animationController.reset();

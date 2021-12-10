@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_auth/Screens/User/Testing/components/choice_based.dart';
-import 'package:flutter_auth/Screens/User/Testing/components/header_with_logo.dart';
-import 'package:flutter_auth/Screens/User/Testing/components/mandatory.dart';
+import 'package:flutter_auth/Screens/User/Testing/components/answers_card.dart';
+import 'package:flutter_auth/Screens/User/Testing/components/nav_button.dart';
+import 'package:flutter_auth/Screens/User/Testing/components/question_card.dart';
+import 'package:flutter_auth/Screens/User/Testing/components/question_counter.dart';
+import 'package:flutter_animation_progress_bar/flutter_animation_progress_bar.dart';
 
 class TestingPage extends StatefulWidget {
   const TestingPage({Key key}) : super(key: key);
@@ -26,52 +28,47 @@ class _TestingPageState extends State<TestingPage> {
       ),
       backgroundColor: Color(0xFFF5F5F5),
       body: SafeArea(
-        child: SingleChildScrollView(
+        child: Container(
+          width: double.infinity,
+          height: double.infinity,
+          decoration: BoxDecoration(
+            color: Color(0xFF239BD8),
+          ),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              HeaderWithLogo(),
+              QuestionCounter(),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 60, 0, 0),
-                child: Container(
-                  width: double.infinity,
-                  height: 550,
-                  decoration: BoxDecoration(
-                    color: Colors.transparent,
-                  ),
+                padding: EdgeInsetsDirectional.fromSTEB(30, 0, 30, 20),
+                child: FAProgressBar(
+                  currentValue: 80,
+                  displayText: '%',
+                  backgroundColor: Color(0xFFFFFFFF),
+                  progressColor: Color(0xFF99CCFF),
+                )
+              ),
+              Container(
+                width: 350,
+                height: 550,
+                decoration: BoxDecoration(
+                  color: Color(0xFFEEEEEE),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: SingleChildScrollView(
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(30, 0, 0, 10),
-                        child: Text(
-                          'Mandatory',
-                          textAlign: TextAlign.start,
-                          style: Theme.of(context).textTheme.headline1.copyWith(
-                            fontFamily: 'SourceSansPro',
-                            fontSize: 20,
-                          ),
-                        ),
-                      ),
-                      Mandatory(),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(30, 10, 0, 10),
-                        child: Text(
-                          'Choice-based',
-                          textAlign: TextAlign.start,
-                          style: Theme.of(context).textTheme.headline1.copyWith(
-                            fontFamily: 'SourceSansPro',
-                            fontSize: 20,
-                          ),
-                        ),
-                      ),
-                      ChoiceBased()
+                      QuestionCard(),
+                      AnswersCard(),
+                      NavButton(),
                     ],
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),
