@@ -4,6 +4,6 @@
 - Ditujukan untuk keperluan pengembangan pusat karir UIN Syarif Hidayatulah Jakarta
 - Saat ini dapat digunakan di platform Android
 
-## Tampilan Aplikasi
+## Tampilan Interface Aplikasi
 
 Coming Soon
