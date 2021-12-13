@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter_auth/Screens/User/Home/components/choice_based.dart';
 import 'package:flutter_auth/Screens/User/Home/components/header_with_logo.dart';
 import 'package:flutter_auth/Screens/User/Home/components/mandatory.dart';

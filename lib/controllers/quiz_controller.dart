@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/animation.dart';
 import 'package:flutter_auth/Screens/User/Result/result_screen.dart';
 import 'package:flutter_auth/models/Questions.dart';
 import 'package:get/get.dart';
-import 'package:get/state_manager.dart';
 
 class QuestionController extends GetxController 
   with SingleGetTickerProviderMixin {
