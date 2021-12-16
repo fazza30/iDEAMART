@@ -1,19 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_auth/Screens/User/Testing/testing_page.dart';
+import 'package:page_transition/page_transition.dart';
 
 class Mandatory extends StatefulWidget {
-  const Mandatory({
-    Key key, 
-    this.title, 
-    this.color, 
-    this.press, 
-    this.icon
-  }) : super(key: key);
-
-  final String title;
-  final Color color;
-  final Function press;
-  final IconData icon;
+  const Mandatory({Key key}) : super(key: key);
 
   @override
   _MandatoryState createState() => _MandatoryState();
@@ -22,269 +12,397 @@ class Mandatory extends StatefulWidget {
 class _MandatoryState extends State<Mandatory> {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
-      child: Card(
-        clipBehavior: Clip.antiAliasWithSaveLayer,
-        color: Colors.transparent,
-        elevation: 0,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(0),
-        ),
-        child: GridView(
-          padding: EdgeInsets.zero,
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 3,
-            crossAxisSpacing: 20,
-            mainAxisSpacing: 15,
-            childAspectRatio: 1,
+    return Column(
+      mainAxisSize: MainAxisSize.max,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+          child: Text(
+            'Mandatory',
+            style: Theme.of(context).textTheme.headline1.copyWith(
+              fontFamily: 'Poppins',
+              fontSize: 18,
+              fontWeight: FontWeight.bold
+            ),
           ),
-          shrinkWrap: true,
-          scrollDirection: Axis.vertical,
+        ),
+        Column(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            InkWell(
-              onTap: () async {
-                await Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => TestingPage(),
-                  ),
-                );
-              },
-              child: Container(
-                width: 80,
-                height: 80,
-                decoration: BoxDecoration(
-                  color: Color(0xFFFFBF43),
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Icon(
-                      Icons.lightbulb_outline_sharp,
-                      color: Colors.white,
-                      size: 60,
-                    ),
-                    Text(
-                      'Pengelola',
-                      textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.button.copyWith(
-                        fontFamily: 'SourceSansPro',
-                        color: Colors.white,
-                        fontSize: 14,
-                        fontWeight: FontWeight.w600,
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  // Pengelola
+                  InkWell(
+                    onTap: () async {
+                      await Navigator.push(
+                        context,
+                        PageTransition(
+                          type: PageTransitionType.rightToLeft,
+                          duration: Duration(milliseconds: 300),
+                          reverseDuration: Duration(milliseconds: 300),
+                          child: TestingPage(),
+                        ),
+                      );
+                    },
+                    child: Material(
+                      color: Colors.transparent,
+                      elevation: 5,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15),
                       ),
-                    )
-                  ],
-                ),
-              ),
-            ),
+                      child: Container(
+                        width: 100,
+                        height: 100,
+                        decoration: BoxDecoration(
+                          color: Color(0xFFFDC043),
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        child: Padding(
+                          padding:
+                              EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Icon(
+                                Icons.settings_outlined,
+                                color: Colors.white,
+                                size: 32,
+                              ),
+                              Divider(
+                                color: Colors.white,
+                                thickness: 1,
+                              ),
+                              Text(
+                                'Pengelola',
+                                style: Theme.of(context).textTheme.headline1.copyWith(
+                                  fontFamily: 'Poppins',
+                                  fontSize: 10,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  // End of Pengelola
 
-            InkWell(
-              onTap: () async {
-                await Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => TestingPage(),
-                  ),
-                );
-              },
-              child: Container(
-                width: 80,
-                height: 80,
-                decoration: BoxDecoration(
-                  color: Color(0xFFD34539),
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Icon(
-                      Icons.lightbulb_outline_sharp,
-                      color: Colors.white,
-                      size: 60,
-                    ),
-                    Text(
-                      'Media Sosial',
-                      textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.button.copyWith(
-                        fontFamily: 'SourceSansPro',
-                        color: Colors.white,
-                        fontSize: 14,
-                        fontWeight: FontWeight.w600,
+                  // Media Sosial
+                  InkWell(
+                    onTap: () async {
+                      await Navigator.push(
+                        context,
+                        PageTransition(
+                          type: PageTransitionType.rightToLeft,
+                          duration: Duration(milliseconds: 300),
+                          reverseDuration: Duration(milliseconds: 300),
+                          child: TestingPage(),
+                        ),
+                      );
+                    },
+                    child: Material(
+                      color: Colors.transparent,
+                      elevation: 5,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15),
                       ),
-                    )
-                  ],
-                ),
-              ),
-            ),
+                      child: Container(
+                        width: 100,
+                        height: 100,
+                        decoration: BoxDecoration(
+                          color: Color(0xFFD34539),
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        child: Padding(
+                          padding:
+                              EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Icon(
+                                Icons.people_alt_outlined,
+                                color: Colors.white,
+                                size: 32,
+                              ),
+                              Divider(
+                                color: Colors.white,
+                                thickness: 1,
+                              ),
+                              Text(
+                                'Media Sosial',
+                                style: Theme.of(context).textTheme.headline1.copyWith(
+                                  fontFamily: 'Poppins',
+                                  fontSize: 10,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  // End of Media Sosial
 
-            InkWell(
-              onTap: () async {
-                await Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => TestingPage(),
-                  ),
-                );
-              },
-              child: Container(
-                width: 80,
-                height: 80,
-                decoration: BoxDecoration(
-                  color: Color(0xFF1D9E62),
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Icon(
-                      Icons.lightbulb_outline_sharp,
-                      color: Colors.white,
-                      size: 60,
-                    ),
-                    Text(
-                      'Organizational Belonging',
-                      textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.button.copyWith(
-                        fontFamily: 'SourceSansPro',
-                        color: Colors.white,
-                        fontSize: 12,
-                        fontWeight: FontWeight.w600,
+                  // Milik Perusahaan
+                  InkWell(
+                    onTap: () async {
+                      await Navigator.push(
+                        context,
+                        PageTransition(
+                          type: PageTransitionType.rightToLeft,
+                          duration: Duration(milliseconds: 300),
+                          reverseDuration: Duration(milliseconds: 300),
+                          child: TestingPage(),
+                        ),
+                      );
+                    },
+                    child: Material(
+                      color: Colors.transparent,
+                      elevation: 5,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15),
                       ),
-                    )
-                  ],
-                ),
+                      child: Container(
+                        width: 100,
+                        height: 100,
+                        decoration: BoxDecoration(
+                          color: Color(0xFF1D9F63),
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        child: Padding(
+                          padding:
+                              EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Icon(
+                                Icons.domain,
+                                color: Colors.white,
+                                size: 32,
+                              ),
+                              Divider(
+                                color: Colors.white,
+                                thickness: 1,
+                              ),
+                              Text(
+                                'Milik Perusahaan',
+                                textAlign: TextAlign.center,
+                                style: Theme.of(context).textTheme.headline1.copyWith(
+                                  fontFamily: 'Poppins',
+                                  fontSize: 10,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  // End of Milik Perusahaan
+                ],
               ),
             ),
-            
-            InkWell(
-              onTap: () async {
-                await Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => TestingPage(),
-                  ),
-                );
-              },
-              child: Container(
-                width: 80,
-                height: 80,
-                decoration: BoxDecoration(
-                  color: Theme.of(context).primaryColor,
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Icon(
-                      Icons.lightbulb_outline_sharp,
-                      color: Colors.white,
-                      size: 60,
-                    ),
-                    Text(
-                      'Administration',
-                      textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.button.copyWith(
-                        fontFamily: 'SourceSansPro',
-                        color: Colors.white,
-                        fontSize: 12,
-                        fontWeight: FontWeight.w600,
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  // Administrasi
+                  InkWell(
+                    onTap: () async {
+                      await Navigator.push(
+                        context,
+                        PageTransition(
+                          type: PageTransitionType.rightToLeft,
+                          duration: Duration(milliseconds: 300),
+                          reverseDuration: Duration(milliseconds: 300),
+                          child: TestingPage(),
+                        ),
+                      );
+                    },
+                    child: Material(
+                      color: Colors.transparent,
+                      elevation: 5,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15),
                       ),
-                    )
-                  ],
-                ),
-              ),
-            ),
-            
-            InkWell(
-              onTap: () async {
-                await Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => TestingPage(),
-                  ),
-                );
-              },
-              child: Container(
-                width: 80,
-                height: 80,
-                decoration: BoxDecoration(
-                  color: Color(0xFF1D9E62),
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Icon(
-                      Icons.lightbulb_outline_sharp,
-                      color: Colors.white,
-                      size: 60,
-                    ),
-                    Text(
-                      'Event',
-                      textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.button.copyWith(
-                        fontFamily: 'SourceSansPro',
-                        color: Colors.white,
-                        fontSize: 14,
-                        fontWeight: FontWeight.w600,
+                      child: Container(
+                        width: 100,
+                        height: 100,
+                        decoration: BoxDecoration(
+                          color: Color(0xFF239BD8),
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        child: Padding(
+                          padding:
+                              EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Icon(
+                                Icons.credit_card_rounded,
+                                color: Colors.white,
+                                size: 32,
+                              ),
+                              Divider(
+                                color: Colors.white,
+                                thickness: 1,
+                              ),
+                              Text(
+                                'Administrasi',
+                                textAlign: TextAlign.center,
+                                style: Theme.of(context).textTheme.headline1.copyWith(
+                                  fontFamily: 'Poppins',
+                                  fontSize: 10,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
                       ),
-                    )
-                  ],
-                ),
-              ),
-            ),
-            
-            InkWell(
-              onTap: () async {
-                await Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => TestingPage(),
-                  ),
-                );
-              },
-              child: Container(
-                width: 80,
-                height: 80,
-                decoration: BoxDecoration(
-                  color: Color(0xFFFFBF43),
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Icon(
-                      Icons.lightbulb_outline_sharp,
-                      color: Colors.white,
-                      size: 60,
                     ),
-                    Text(
-                      'Pengembangan Diri',
-                      textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.button.copyWith(
-                        fontFamily: 'SourceSansPro',
-                        color: Colors.white,
-                        fontSize: 12,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    )
-                  ],
-                ),
-              ),
-            )
+                  ),
+                  // End of Administrasi
 
+                  // Event
+                  InkWell(
+                    onTap: () async {
+                      await Navigator.push(
+                        context,
+                        PageTransition(
+                          type: PageTransitionType.rightToLeft,
+                          duration: Duration(milliseconds: 300),
+                          reverseDuration: Duration(milliseconds: 300),
+                          child: TestingPage(),
+                        ),
+                      );
+                    },
+                    child: Material(
+                      color: Colors.transparent,
+                      elevation: 5,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      child: Container(
+                        width: 100,
+                        height: 100,
+                        decoration: BoxDecoration(
+                          color: Color(0xFF1E9E65),
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        child: Padding(
+                          padding:
+                              EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Icon(
+                                Icons.local_play,
+                                color: Colors.white,
+                                size: 32,
+                              ),
+                              Divider(
+                                color: Colors.white,
+                                thickness: 1,
+                              ),
+                              Text(
+                                'Event',
+                                textAlign: TextAlign.center,
+                                style: Theme.of(context).textTheme.headline1.copyWith(
+                                  fontFamily: 'Poppins',
+                                  fontSize: 10,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  // End of Event
+
+                  // Pengembangan Diri
+                  InkWell(
+                    onTap: () async {
+                      await Navigator.push(
+                        context,
+                        PageTransition(
+                          type: PageTransitionType.rightToLeft,
+                          duration: Duration(milliseconds: 300),
+                          reverseDuration: Duration(milliseconds: 300),
+                          child: TestingPage(),
+                        ),
+                      );
+                    },
+                    child: Material(
+                      color: Colors.transparent,
+                      elevation: 5,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      child: Container(
+                        width: 100,
+                        height: 100,
+                        decoration: BoxDecoration(
+                          color: Color(0xFFFFBF43),
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        child: Padding(
+                          padding:
+                              EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Icon(
+                                Icons.person_add_sharp,
+                                color: Colors.white,
+                                size: 32,
+                              ),
+                              Divider(
+                                color: Colors.white,
+                                thickness: 1,
+                              ),
+                              Text(
+                                'Pengembangan Diri',
+                                textAlign: TextAlign.center,
+                                style: Theme.of(context).textTheme.headline1.copyWith(
+                                  fontFamily: 'Poppins',
+                                  fontSize: 9,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  // End of Pengembangan Diri
+                ],
+              ),
+            ),
           ],
         ),
-      ),
+      ],
     );
   }
 }

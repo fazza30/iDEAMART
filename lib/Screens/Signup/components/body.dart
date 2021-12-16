@@ -1,107 +1,78 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_auth/Screens/Login/login_screen.dart';
-import 'package:flutter_auth/Screens/Signup/components/background.dart';
-import 'package:flutter_auth/components/already_have_an_account_acheck.dart';
-import 'package:flutter_auth/components/rounded_button.dart';
-import 'package:flutter_auth/components/rounded_input_field.dart';
-import 'package:flutter_auth/components/name_field.dart';
-import 'package:flutter_auth/components/rounded_password_field.dart';
+import 'package:flutter_auth/Screens/Signup/components/action_button.dart';
+import 'package:flutter_auth/Screens/Signup/components/header.dart';
+import 'package:flutter_auth/public_components/name_field.dart';
+import 'package:flutter_auth/public_components/rounded_input_field.dart';
+import 'package:flutter_auth/public_components/rounded_password_field.dart';
 
-class Body extends StatelessWidget {
+class Body extends StatefulWidget {
+  const Body({Key key}) : super(key: key);
+
+  @override
+  _BodyState createState() => _BodyState();
+}
+
+class _BodyState extends State<Body> {
+  TextEditingController txtName1;
+  TextEditingController txtName2;
+  TextEditingController txtPhone;
+  TextEditingController txtPassword;
+  bool txtPasswordVisibility;
+  final formKey = GlobalKey<FormState>();
+  final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
+  void initState() {
+    super.initState();
+    txtName1 = TextEditingController();
+    txtName2 = TextEditingController();
+    txtPhone = TextEditingController();
+    txtPassword = TextEditingController();
+    txtPasswordVisibility = false;
+  }
+
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    return Background(
-      child: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              "REGISTER",
-              style: TextStyle(fontFamily: 'SourceSansPro' ,fontWeight: FontWeight.bold, fontSize: 30),
+    return Form(
+      key: formKey,
+      autovalidateMode: AutovalidateMode.always,
+      child: Scaffold(
+        key: scaffoldKey,
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          automaticallyImplyLeading: true,
+          actions: [],
+          centerTitle: true,
+          elevation: 0,
+        ),
+        backgroundColor: Color(0xFFF5F5F5),
+        body: SafeArea(
+          child: Container(
+            width: double.infinity,
+            height: double.infinity,
+            decoration: BoxDecoration(
+              color: Colors.white,
             ),
-            SizedBox(height: size.height * 0.03),
-            
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                FirstNameField(
-                  hintText: "John",
-                  onChanged: (value) {},
-                ),
-                SizedBox(width: size.width * 0.03),
-                LastNameField(
-                  hintText: "Doe",
-                  onChanged: (value) {},
-                ),
-              ],  
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Header(),
+                  RoundedNameField(txtName1: txtName1, txtName2: txtName2),
+                  RoundedInputField(),
+                  RoundedPasswordField(),
+                  ActionButton(),
+                ],
+              ),
             ),
-            
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text(
-                  "No. Telepon", 
-                  style: TextStyle(
-                    fontFamily: "SourceSansPro"
-                  )
-                ),
-                RoundedInputField(
-                  hintText: "081234567890",
-                  onChanged: (value) {},
-                ),
-              ],  
-            ),
-            
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text(
-                  "Password",
-                  style: TextStyle(
-                    fontFamily: "SourceSansPro"
-                  )
-                ),
-                RoundedPasswordField(
-                  onChanged: (value) {},
-                ),
-              ],
-            ),
-            
-            SizedBox(height: size.height * 0.3),
-            
-            AlreadyHaveAnAccountCheck(
-              login: false,
-              press: () {
-                Navigator.pop(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return LoginScreen();
-                    },
-                  ),
-                );
-              },
-            ),
-            
-            RoundedButton(
-              text: "SIGNUP",
-              press: () {
-                Navigator.pop(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return LoginScreen();
-                    },
-                  ),
-                );
-              },
-            ),
-            
-          ],
+          ),
         ),
       ),
     );
   }
 }
+
+
+

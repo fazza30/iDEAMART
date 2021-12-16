@@ -34,42 +34,44 @@ class _TestingPageState extends State<TestingPage> {
           decoration: BoxDecoration(
             color: Color(0xFF239BD8),
           ),
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              QuestionCounter(),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(30, 0, 30, 20),
-                child: FAProgressBar(
-                  currentValue: 80,
-                  displayText: '%',
-                  backgroundColor: Color(0xFFFFFFFF),
-                  progressColor: Color(0xFF99CCFF),
-                )
-              ),
-              Container(
-                width: 350,
-                height: 550,
-                decoration: BoxDecoration(
-                  color: Color(0xFFEEEEEE),
-                  borderRadius: BorderRadius.circular(10),
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                QuestionCounter(),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(30, 0, 30, 20),
+                  child: FAProgressBar(
+                    currentValue: 80,
+                    displayText: '%',
+                    backgroundColor: Color(0xFFFFFFFF),
+                    progressColor: Color(0xFF99CCFF),
+                  )
                 ),
-                child: SingleChildScrollView(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      QuestionCard(),
-                      AnswersCard(),
-                      NavButton(),
-                    ],
+                Container(
+                  width: 350,
+                  height: 550,
+                  decoration: BoxDecoration(
+                    color: Color(0xFFEEEEEE),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        QuestionCard(),
+                        AnswersCard(),
+                        NavButton(),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

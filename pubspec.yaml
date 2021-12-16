@@ -30,6 +30,7 @@ dependencies:
   page_transition: ^2.0.4
   shared_preferences: ^2.0.10
   flutter_animation_progress_bar: ^2.0.1
+  google_fonts: ^2.1.0
 
 dev_dependencies:
   flutter_test:
@@ -61,12 +62,9 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: SourceSansPro
+    - family: Poppins
       fonts:
-        - asset: assets\fonts\SourceSansPro-Regular.ttf
-    - family: HindSiliguri
-      fonts:
-        - asset: assets\fonts\HindSiliguri-Regular.ttf
+        - asset: assets\fonts\Poppins-Regular.ttf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

@@ -25,9 +25,6 @@ class RoundedButton extends StatelessWidget {
     );
   }
 
-  //Used:ElevatedButton as FlatButton is deprecated.
-  //Here we have to apply customizations to Button by inheriting the styleFrom
-
   Widget newElevatedButton() {
     return ElevatedButton(
       child: Text(
@@ -37,9 +34,9 @@ class RoundedButton extends StatelessWidget {
       onPressed: press,
       style: ElevatedButton.styleFrom(
           primary: color,
-          padding: EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+          padding: EdgeInsets.symmetric(horizontal: 40, vertical: 10),
           textStyle: TextStyle(
-              color: textColor, fontSize: 18, fontWeight: FontWeight.bold, fontFamily: "HindSiliguri")),
+              color: textColor, fontSize: 18, fontWeight: FontWeight.bold, fontFamily: "Poppins")),
     );
   }
 }
