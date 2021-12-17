@@ -54,7 +54,7 @@ class _HeaderState extends State<Header> {
           
           // NotificationIcon
           Icon(
-            Icons.settings_outlined,
+            Icons.notifications,
             color: Colors.white,
             size: 30,
           ),

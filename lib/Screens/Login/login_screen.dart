@@ -15,13 +15,13 @@ class _LoginScreenState extends State<LoginScreen> {
   final formKey = GlobalKey<FormState>();
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
-  @override
-  void initState() {
-    super.initState();
-    txtPasswordController = TextEditingController();
-    txtPasswordVisibility = false;
-    txtPhoneController = TextEditingController();
-  }
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   txtPasswordController = TextEditingController();
+  //   txtPasswordVisibility = false;
+  //   txtPhoneController = TextEditingController();
+  // }
 
   @override
   Widget build(BuildContext context) {

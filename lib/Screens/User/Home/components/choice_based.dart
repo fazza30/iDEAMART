@@ -141,7 +141,7 @@ class _ChoiceBasedState extends State<ChoiceBased> {
                                 'Media Partner',
                                 style: Theme.of(context).textTheme.headline1.copyWith(
                                   fontFamily: 'Poppins',
-                                  fontSize: 8,
+                                  fontSize: 10,
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold
                                 ),

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_auth/Screens/User/Home/components/background.dart';
 import 'package:flutter_auth/Screens/User/Home/components/body.dart';
-import 'package:flutter_auth/Screens/User/Home/components/header.dart';
-import 'package:flutter_auth/Screens/User/Home/components/jumbotron.dart';
+import 'package:flutter_auth/public_components/header.dart';
+import 'package:flutter_auth/public_components/background.dart';
+import 'package:flutter_auth/public_components/jumbotron.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key key}) : super(key: key);
@@ -42,15 +42,15 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     Background(),
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(50, 100, 50, 0),
+                      padding: EdgeInsetsDirectional.fromSTEB(50, 0 , 50, 0),
                       child: Header(),
                     ),
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(50, 165, 50, 0),
+                      padding: EdgeInsetsDirectional.fromSTEB(50, 55, 50, 0),
                       child: Jumbotron(),
                     ),
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(30, 280, 30, 0),
+                      padding: EdgeInsetsDirectional.fromSTEB(30, 165, 30, 0),
                       child: Body(),
                     ),
                   ],

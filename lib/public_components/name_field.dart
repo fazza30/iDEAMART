@@ -87,6 +87,12 @@ class FirstName extends StatelessWidget {
             ),
             style: Theme.of(context).textTheme.bodyText1,
             keyboardType: TextInputType.name,
+            validator: (val) {
+              if (val.isEmpty) {
+                return 'Bagian ini harus diisi !';
+              } else
+                return null;
+            },
           ),
         ),
       ],
@@ -146,6 +152,12 @@ class LastName extends StatelessWidget {
             ),
             style: Theme.of(context).textTheme.bodyText1,
             keyboardType: TextInputType.name,
+            validator: (val) {
+              if (val.isEmpty) {
+                return 'Bagian ini harus diisi !';
+              } else
+                return null;
+            },
           ),
         ),
       ],

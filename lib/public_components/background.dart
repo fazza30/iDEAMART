@@ -13,7 +13,7 @@ class _BackgroundState extends State<Background> {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 219,
+      height: 110,
       decoration: BoxDecoration(
         color: Color(0xFF239BD8),
         borderRadius: BorderRadius.only(
