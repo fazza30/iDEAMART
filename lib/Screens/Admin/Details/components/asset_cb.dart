@@ -19,7 +19,7 @@ class _HeadCBState extends State<HeadCB> {
       ),
       child: Row(
         mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           InkWell(
@@ -33,7 +33,7 @@ class _HeadCBState extends State<HeadCB> {
             ),
           ),
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(65, 3, 95, 0),
+            padding: EdgeInsetsDirectional.fromSTEB(65, 3, 100, 0),
             child: Text(
               'Choice Based',
               style: Theme.of(context).textTheme.headline1.copyWith(

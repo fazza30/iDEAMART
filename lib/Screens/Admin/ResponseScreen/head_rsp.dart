@@ -18,7 +18,7 @@ class _HeadRspState extends State<HeadRsp> {
       ),
       child: Row(
         mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           InkWell(
@@ -32,7 +32,7 @@ class _HeadRspState extends State<HeadRsp> {
             ),
           ),
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(60, 3, 90, 0),
+            padding: const EdgeInsetsDirectional.fromSTEB(98, 0, 120, 0),
             child: Text(
               'Summary',
               style: Theme.of(context).textTheme.headline1.copyWith(

@@ -10,8 +10,9 @@ const kGrayColor = Color(0xFFC1C1C1);
 const kBlackColor = Color(0xFF101010);
 const kPrimaryGradient = LinearGradient(
   colors: [
-    Color(0xFF46A0AE),
-    Color(0xFF00FFCB)
+    Color(0xFF239BD8),
+    Color(0xFF167CAF),
+    Color(0xFF004466)
   ],
   begin: Alignment.centerLeft,
   end: Alignment.centerRight

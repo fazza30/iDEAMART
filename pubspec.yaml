@@ -33,6 +33,10 @@ dependencies:
   google_fonts: ^2.1.0
   firebase_auth: ^3.3.3
   cloud_firestore: ^3.1.4
+  flutter_swiper: ^1.1.6
+  emoji_feedback: ^0.1.0
+  easy_debounce: 2.0.1
+  pie_chart: ^5.1.0
 
 dev_dependencies:
   flutter_test:

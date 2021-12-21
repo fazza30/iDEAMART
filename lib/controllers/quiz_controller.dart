@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_auth/Screens/User/Result/result_screen.dart';
+// import 'package:flutter_auth/Screens/User/Result/result_screen.dart';
 import 'package:flutter_auth/models/Questions.dart';
 import 'package:get/get.dart';
 
@@ -14,19 +14,19 @@ class QuestionController extends GetxController
   PageController _pageController;
   PageController get pageController => this._pageController;
 
-  List<Question> _questions = sample_data
-    .map(
-      (question) => Question(
-        id: question['id'],
-        question: question['question'],
-        options: question['options'],
-        icons: question['icons'],
-        answer: question['answer_index']
-      ),
-    )
-    .toList();
+  // List<Question> _questions = sample_data
+  //   .map(
+  //     (question) => Question(
+  //       id: question['id'],
+  //       question: question['question'],
+  //       options: question['options'],
+  //       icons: question['icons'],
+  //       answer: question['answer_index']
+  //     ),
+  //   )
+  //   .toList();
 
-  List<Question> get questions => this._questions;
+  // List<Question> get questions => this._questions;
 
   bool _isAnswered = false;
   bool get isAnswered => this._isAnswered;
@@ -75,21 +75,21 @@ class QuestionController extends GetxController
   }
 
   void nextQuestion() {
-    if (_questionNumber.value != _questions.length) {
-      _isAnswered = false;
-      _pageController.nextPage(
-        duration: Duration(milliseconds: 250), curve: Curves.ease
-      );
+    // if (_questionNumber.value != _questions.length) {
+    //   _isAnswered = false;
+    //   _pageController.nextPage(
+    //     duration: Duration(milliseconds: 250), curve: Curves.ease
+    //   );
 
       // reset ke 0
       _animationController.reset();
 
       // kembali jalankan progressBar
       // _animationController.forward().whenComplete(nextQuestion);
-    } else {
-      Get.to(() => ResultScreen());
-      _animationController.reset();
-    }
+    // } else {
+    //   Get.to(() => ResultScreen());
+    //   _animationController.reset();
+    // }
   }
 
   void updateTheQnNum(int index) {

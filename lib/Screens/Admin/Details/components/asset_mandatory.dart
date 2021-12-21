@@ -19,7 +19,7 @@ class _HeadMandatoryState extends State<HeadMandatory> {
       ),
       child: Row(
         mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           InkWell(
@@ -33,7 +33,7 @@ class _HeadMandatoryState extends State<HeadMandatory> {
             ),
           ),
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(65, 3, 100, 0),
+            padding: EdgeInsetsDirectional.fromSTEB(80, 3, 120, 0),
             child: Text(
               'Mandatory',
               style: Theme.of(context).textTheme.headline1.copyWith(

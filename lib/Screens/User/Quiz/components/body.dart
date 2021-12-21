@@ -1,10 +1,7 @@
+import 'package:emoji_feedback/emoji_feedback.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_auth/Screens/User/Quiz/components/question_card.dart';
-import 'package:flutter_auth/constants.dart';
-import 'package:flutter_auth/controllers/quiz_controller.dart';
-
-import 'package:get/get.dart';
-import 'progress_bar.dart';
+import 'package:flutter_auth/models/Questions.dart';
+import 'package:flutter_swiper/flutter_swiper.dart';
 
 class Body extends StatelessWidget {
   const Body({
@@ -13,61 +10,92 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    QuestionController _questionController = Get.put(QuestionController());
-    return Stack(
-      children: [
-        SafeArea(
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
-                child: Obx(
-                  () => Text.rich(
-                    TextSpan(
-                      text: "Question ${_questionController.questionNumber.value}",
-                      style: Theme.of(context)
-                          .textTheme
-                          .headline4
-                          .copyWith(
-                        color: Colors.white,
-                        fontFamily: 'SourceSansPro'
-                      ),
-                      children: [
-                        TextSpan(
-                          text: "/${_questionController.questions.length}",
-                          style: Theme.of(context)
-                              .textTheme
-                              .headline5
-                              .copyWith(
-                            color: Colors.white,
-                            fontFamily: 'SourceSansPro'
-                          ),
+    return Container(
+      child: SafeArea(
+        child: Column(
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.all(32.0),
+              child: Column(
+                children: <Widget>[
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Pertanyaan 1 /",
+                        style: Theme.of(context).textTheme.headline1.copyWith(
+                          fontFamily: 'Poppins',
+                          fontSize: 20,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold
                         ),
-                      ],
-                    ),
+                      ),
+                      Text(
+                        " 4",
+                        style: Theme.of(context).textTheme.headline1.copyWith(
+                          fontFamily: 'Poppins',
+                          fontSize: 18,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold
+                        ),
+                      )
+                    ],
                   ),
-                ),
+                  Padding(
+                    padding: const EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                    child: Container(
+                      height: 500,
+                      child: Swiper(
+                        itemCount: questions.length,
+                        itemWidth: MediaQuery.of(context).size.width - 2 * 64,
+                        layout: SwiperLayout.STACK,
+                        itemBuilder: (context, index) {
+                          return Stack(
+                            children: <Widget>[
+                              SizedBox(height: 100),
+                              Card(
+                                elevation: 5,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15)
+                                ),
+                                color: Colors.white,
+                                child: Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(5, 0, 5, 0),
+                                  child: Column(
+                                    children: [
+                                      SizedBox(height: 30),
+                                      Text(
+                                        questions[index].question,
+                                        style: Theme.of(context).textTheme.headline1.copyWith(
+                                          fontFamily: 'Poppins',
+                                          fontSize: 16,
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold
+                                        ),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                      SizedBox(height: 30),
+                                      EmojiFeedback(
+                                        onChange: (index) {
+                                          print(index);
+                                        },
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          );
+                        },
+                      ),
+                    ),
+                  )
+                ],
               ),
-              SizedBox(height: 25),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
-                child: ProgressBar(),
-              ),
-              SizedBox(height: 25),
-              Expanded(
-                child: PageView.builder(
-                  // physics: NeverScrollableScrollPhysics(),
-                  controller: _questionController.pageController,
-                  onPageChanged: _questionController.updateTheQnNum,
-                  itemCount: _questionController.questions.length,
-                  itemBuilder: (context, index) => QuestionCard(
-                    question: _questionController.questions[index]),
-                ),
-              ),
-            ],
-          ),
+            )
+          ],
         )
-      ]
+      ),
     );
   }
 }
