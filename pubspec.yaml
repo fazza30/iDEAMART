@@ -37,6 +37,7 @@ dependencies:
   emoji_feedback: ^0.1.0
   easy_debounce: 2.0.1
   pie_chart: ^5.1.0
+  flutter_secure_storage : ^4.2.0
 
 dev_dependencies:
   flutter_test:

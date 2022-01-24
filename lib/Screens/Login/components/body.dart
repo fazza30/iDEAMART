@@ -2,9 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_auth/Screens/Admin/Home/admin_home_screen.dart';
 import 'package:flutter_auth/Screens/Signup/signup_screen.dart';
 import 'package:flutter_auth/Screens/User/Home/home_screen.dart';
+import 'package:flutter_auth/helperUrl.dart';
 import 'package:flutter_auth/public_components/already_have_an_account_acheck.dart';
 import 'package:flutter_auth/public_components/rounded_button.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'dart:convert';
+
+
+
+final storage = FlutterSecureStorage();
 
 class Body extends StatefulWidget {
   @override
@@ -14,8 +23,73 @@ class Body extends StatefulWidget {
 class _BodyState extends State<Body> {
   TextEditingController txtPhone;
   TextEditingController txtPassword;
+  bool isLoading=false;
   bool txtPasswordVisibility;
   TextEditingController txtPhoneController;
+  ScaffoldMessengerState scaffoldMessenger;
+
+  //String url = MyUrl().getUrlDevice();
+  TextEditingController username = new TextEditingController();
+  TextEditingController password = new TextEditingController();
+  
+
+    login(email,password) async
+  {
+    Map data = {
+      'email': email,
+      'password': password
+    };
+    print(data.toString());
+    final  response= await http.post(
+        Uri.parse(url),
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+
+
+        body: data,
+        encoding: Encoding.getByName("utf-8")
+    )  ;
+    setState(() {
+      isLoading=false;
+    });
+    if (response.statusCode == 200) {
+      Map<String,dynamic>resposne=jsonDecode(response.body);
+      if(!resposne['error'])
+      {
+        Map<String,dynamic>user=resposne['data'];
+        print(" User name ${user['id']}");
+        savePref(1,user['name'],user['email'],user['id']);
+        Navigator.push(
+          context, 
+          PageTransition( 
+            type: PageTransitionType.bottomToTop,
+            duration: Duration(milliseconds: 300),
+            reverseDuration: Duration(milliseconds: 300),
+            child: HomePage()
+          )
+        );
+      }else{
+        print(" ${resposne['message']}");
+      }
+      scaffoldMessenger.showSnackBar(SnackBar(content:Text("${resposne['message']}")));
+
+    } else {
+      scaffoldMessenger.showSnackBar(SnackBar(content:Text("Please try again!")));
+    }
+  }
+
+  savePref(int value, String name, String email, int id) async {
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+
+      preferences.setInt("value", value);
+      preferences.setString("name", name);
+      preferences.setString("email", email);
+      preferences.setString("id", id.toString());
+      
+
+  }
 
   @override
   void initState() {
@@ -68,7 +142,7 @@ class _BodyState extends State<Body> {
                       ),
                     ),
                     TextFormField(
-                      controller: txtPhone,
+                      controller: username,
                       obscureText: false,
                       decoration: InputDecoration(
                         hintText: 'Mis: 0812345. . .',
@@ -128,7 +202,7 @@ class _BodyState extends State<Body> {
                       ),
                     ),
                     TextFormField(
-                      controller: txtPassword,
+                      controller: password,
                       obscureText: !txtPasswordVisibility,
                       decoration: InputDecoration(
                         hintText: 'Masukkan password anda',
@@ -206,15 +280,12 @@ class _BodyState extends State<Body> {
                     RoundedButton(
                       text: "MASUK",
                       press: () {
-                        Navigator.push(
-                          context, 
-                          PageTransition( 
-                            type: PageTransitionType.bottomToTop,
-                            duration: Duration(milliseconds: 300),
-                            reverseDuration: Duration(milliseconds: 300),
-                            child: HomePage()
-                          )
-                        );
+                        if(username.text.isEmpty||password.text.isEmpty)
+                        {
+                          scaffoldMessenger.showSnackBar(SnackBar(content:Text("Please Fill all fileds")));
+                          return;
+                        }
+                        login(username.text,password.text);
                       },
                     ),
                     InkWell(
