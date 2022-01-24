@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:flutter_auth/controllers/user_controller.dart';
 
 class RoundedPasswordField extends StatefulWidget {
   final ValueChanged<String> onChanged;
-  final TextEditingController txtPassword;
-  const RoundedPasswordField({
+
+  RoundedPasswordField({
     Key key,
     this.onChanged,
-    this.txtPassword,
   }) : super(key: key);
 
   @override
@@ -14,18 +15,19 @@ class RoundedPasswordField extends StatefulWidget {
 }
 
 class _RoundedPasswordFieldState extends State<RoundedPasswordField> {
-  TextEditingController txtPassword;
+  final UserController userController = Get.put(UserController());
+  //TextEditingController txtPassword;
   bool txtPasswordVisibility;
-  TextEditingController txtPhoneController;
+  //TextEditingController txtPhoneController;
   final formKey = GlobalKey<FormState>();
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    txtPassword = TextEditingController();
+    //txtPassword = TextEditingController();
     txtPasswordVisibility = false;
-    txtPhoneController = TextEditingController();
+    //txtPhoneController = TextEditingController();
   }
 
   @override
@@ -47,7 +49,7 @@ class _RoundedPasswordFieldState extends State<RoundedPasswordField> {
             ),
           ),
           TextFormField(
-            controller: txtPassword,
+            controller: userController.passwordEditingController,
             obscureText: !txtPasswordVisibility,
             decoration: InputDecoration(
               hintText: 'Masukkan password anda',
