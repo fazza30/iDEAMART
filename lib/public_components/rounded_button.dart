@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_auth/constants.dart';
+import 'package:get/get.dart';
+import 'package:flutter_auth/controllers/user_controller.dart';
 
 class RoundedButton extends StatelessWidget {
+  final UserController userController = Get.put(UserController());
   final String text;
   final Function press;
   final Color color, textColor;
-  const RoundedButton({
+  RoundedButton({
     Key key,
     this.text,
     this.press,
@@ -31,12 +34,18 @@ class RoundedButton extends StatelessWidget {
         text,
         style: TextStyle(color: textColor),
       ),
-      onPressed: press,
+      onPressed: () {
+        userController.createDataUser();
+        press();
+      },
       style: ElevatedButton.styleFrom(
           primary: color,
           padding: EdgeInsets.symmetric(horizontal: 40, vertical: 10),
           textStyle: TextStyle(
-              color: textColor, fontSize: 18, fontWeight: FontWeight.bold, fontFamily: "Poppins")),
+              color: textColor,
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+              fontFamily: "Poppins")),
     );
   }
 }

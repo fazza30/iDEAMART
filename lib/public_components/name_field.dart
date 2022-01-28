@@ -1,15 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:flutter_auth/controllers/user_controller.dart';
 
 // NameFieldContainer
 class RoundedNameField extends StatelessWidget {
-  const RoundedNameField({
+
+  RoundedNameField({
     Key key,
-    @required this.txtName1,
-    @required this.txtName2,
+    //@required this.txtName1,
+    //@required this.txtName2,
   }) : super(key: key);
 
+
+  /*
   final TextEditingController txtName1;
   final TextEditingController txtName2;
+  */
 
   @override
   Widget build(BuildContext context) {
@@ -23,8 +29,8 @@ class RoundedNameField extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              FirstName(txtName1: txtName1),
-              LastName(txtName2: txtName2),
+              FirstName(/*firstname: firstname*/),
+              LastName(/*lastname: lastname*/),
             ],
           ),
         ],
@@ -36,12 +42,15 @@ class RoundedNameField extends StatelessWidget {
 
 // FirstName
 class FirstName extends StatelessWidget {
-  const FirstName({
-    Key key,
-    @required this.txtName1,
-  }) : super(key: key);
+  final UserController userController = Get.put(UserController());
 
-  final TextEditingController txtName1;
+  FirstName({
+    Key key,
+   //  @required this.txtName1,
+  }) : super(key: key);
+ 
+  // final TextEditingController txtName1;
+
 
   @override
   Widget build(BuildContext context) {
@@ -50,8 +59,7 @@ class FirstName extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(
-              5, 0, 0, 5),
+          padding: EdgeInsetsDirectional.fromSTEB(5, 0, 0, 5),
           child: Text(
             'Nama Depan',
             style: Theme.of(context).textTheme.bodyText1,
@@ -61,13 +69,14 @@ class FirstName extends StatelessWidget {
           width: 165,
           decoration: BoxDecoration(),
           child: TextFormField(
-            controller: txtName1,
+            controller: userController.firstnameEditingController,
             obscureText: false,
             decoration: InputDecoration(
               hintText: 'Mis: John',
-              hintStyle: Theme.of(context).textTheme.bodyText1.copyWith(
-                fontFamily: 'Poppins'
-              ),
+              hintStyle: Theme.of(context)
+                  .textTheme
+                  .bodyText1
+                  .copyWith(fontFamily: 'Poppins'),
               enabledBorder: OutlineInputBorder(
                 borderSide: BorderSide(
                   color: Colors.black,
@@ -103,13 +112,15 @@ class FirstName extends StatelessWidget {
 
 // LastName
 class LastName extends StatelessWidget {
+  final UserController userController = Get.put(UserController());
+  /*
   const LastName({
     Key key,
     @required this.txtName2,
   }) : super(key: key);
 
   final TextEditingController txtName2;
-
+  */
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -117,8 +128,7 @@ class LastName extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(
-              5, 0, 0, 5),
+          padding: EdgeInsetsDirectional.fromSTEB(5, 0, 0, 5),
           child: Text(
             'Nama Belakang',
             style: Theme.of(context).textTheme.bodyText1,
@@ -128,7 +138,7 @@ class LastName extends StatelessWidget {
           width: 165,
           decoration: BoxDecoration(),
           child: TextFormField(
-            controller: txtName2,
+            controller: userController.lastnameEditingController,
             obscureText: false,
             decoration: InputDecoration(
               hintText: 'Mis: Doe',

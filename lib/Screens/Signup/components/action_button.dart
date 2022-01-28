@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:flutter_auth/Screens/Login/login_screen.dart';
 import 'package:flutter_auth/public_components/already_have_an_account_acheck.dart';
 import 'package:flutter_auth/public_components/rounded_button.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:flutter_auth/controllers/user_controller.dart';
 
 class ActionButton extends StatelessWidget {
-  const ActionButton({
+  final UserController userController = Get.put(UserController());
+  ActionButton({
     Key key,
   }) : super(key: key);
 
@@ -26,50 +29,46 @@ class ActionButton extends StatelessWidget {
                 login: false,
                 press: () {
                   Navigator.pop(
-                    context,
-                    PageTransition( 
-                      type: PageTransitionType.bottomToTop,
-                      duration: Duration(milliseconds: 300),
-                      reverseDuration: Duration(milliseconds: 300),
-                      child: LoginScreen()
-                    )
-                  );
+                      context,
+                      PageTransition(
+                          type: PageTransitionType.bottomToTop,
+                          duration: Duration(milliseconds: 300),
+                          reverseDuration: Duration(milliseconds: 300),
+                          child: LoginScreen()));
                 },
               ),
             ],
           ),
           RoundedButton(
-            text: "MASUK",
-            press: () async {
-              await showDialog(
-                context: context,
-                builder: (alertDialogContext) {
-                  return AlertDialog(
-                    title: Text('Daftar Akun'),
-                    content: Text(
-                        'Selamat, akun anda telah terdaftar !'),
-                    actions: [
-                      TextButton(
-                        onPressed: () =>
-                            Navigator.pop(alertDialogContext),
-                        child: Text('OK'),
-                      ),
-                    ],
-                  );
-                },
-              );
-              await Navigator.pushAndRemoveUntil(
-                context,
-                PageTransition(
-                  type: PageTransitionType.bottomToTop,
-                  duration: Duration(milliseconds: 300),
-                  reverseDuration: Duration(milliseconds: 300),
-                  child: LoginScreen(),
-                ),
-                (r) => false,
-              );
-            }
-          ),
+              text: "MASUK",
+              press: () async {
+                //userController.createDataUser();
+                await showDialog(
+                  context: context,
+                  builder: (alertDialogContext) {
+                    return AlertDialog(
+                      title: Text('Daftar'),
+                      content: Text('Selamat, akun anda telah terdaftar !'),
+                      actions: [
+                        TextButton(
+                          onPressed: () => Navigator.pop(alertDialogContext),
+                          child: Text('OK'),
+                        ),
+                      ],
+                    );
+                  },
+                );
+                await Navigator.pushAndRemoveUntil(
+                  context,
+                  PageTransition(
+                    type: PageTransitionType.bottomToTop,
+                    duration: Duration(milliseconds: 300),
+                    reverseDuration: Duration(milliseconds: 300),
+                    child: LoginScreen(),
+                  ),
+                  (r) => false,
+                );
+              }),
         ],
       ),
     );
