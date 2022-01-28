@@ -41,7 +41,7 @@ class _BodyState extends State<Body> {
     };
     print(data.toString());
     final  response= await http.post(
-        Uri.parse(url),
+        Uri.parse(url_test),
         headers: {
           "Accept": "application/json",
           "Content-Type": "application/x-www-form-urlencoded"
@@ -285,15 +285,7 @@ class _BodyState extends State<Body> {
                           scaffoldMessenger.showSnackBar(SnackBar(content:Text("Please Fill all fileds")));
                           return;
                         }
-                        Navigator.push(
-                          context, 
-                          PageTransition( 
-                            type: PageTransitionType.bottomToTop,
-                            duration: Duration(milliseconds: 300),
-                            reverseDuration: Duration(milliseconds: 300),
-                            child: HomePage()
-                          )
-                        );
+                        login(username.text,password.text);
                       },
                     ),
                     InkWell(

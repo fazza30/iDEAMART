@@ -60,7 +60,7 @@ class _BodyState extends State<Body> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Header(),
-                  RoundedNameField(txtName1: txtName1, txtName2: txtName2),
+                  //RoundedNameField(txtName1: txtName1, txtName2: txtName2),
                   RoundedInputField(),
                   RoundedPasswordField(),
                   ActionButton(),
