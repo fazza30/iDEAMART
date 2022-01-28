@@ -285,7 +285,15 @@ class _BodyState extends State<Body> {
                           scaffoldMessenger.showSnackBar(SnackBar(content:Text("Please Fill all fileds")));
                           return;
                         }
-                        login(username.text,password.text);
+                        Navigator.push(
+                          context, 
+                          PageTransition( 
+                            type: PageTransitionType.bottomToTop,
+                            duration: Duration(milliseconds: 300),
+                            reverseDuration: Duration(milliseconds: 300),
+                            child: HomePage()
+                          )
+                        );
                       },
                     ),
                     InkWell(

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:flutter_auth/controllers/user_controller.dart';
+//import 'package:flutter_auth/controllers/user_controller.dart';
 
 class RoundedInputField extends StatelessWidget {
-  final UserController userController = Get.put(UserController());
+  //final UserController userController = Get.put(UserController());
   final String hintText;
   final ValueChanged<String> onChanged;
   /*const*/ RoundedInputField({
@@ -31,7 +31,7 @@ class RoundedInputField extends StatelessWidget {
               ),
             ),
             TextFormField(
-              controller: userController.phoneEditingController,
+              //controller: userController.phoneEditingController,
               obscureText: false,
               decoration: InputDecoration(
                 hintText: 'Mis: 0812345. . .',
