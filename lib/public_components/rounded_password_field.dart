@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:flutter_auth/controllers/user_controller.dart';
+//import 'package:flutter_auth/controllers/user_controller.dart';
 
 class RoundedPasswordField extends StatefulWidget {
   final ValueChanged<String> onChanged;
@@ -15,7 +15,7 @@ class RoundedPasswordField extends StatefulWidget {
 }
 
 class _RoundedPasswordFieldState extends State<RoundedPasswordField> {
-  final UserController userController = Get.put(UserController());
+  //final UserController userController = Get.put(UserController());
   //TextEditingController txtPassword;
   bool txtPasswordVisibility;
   //TextEditingController txtPhoneController;
@@ -49,7 +49,7 @@ class _RoundedPasswordFieldState extends State<RoundedPasswordField> {
             ),
           ),
           TextFormField(
-            controller: userController.passwordEditingController,
+            //controller: userController.passwordEditingController,
             obscureText: !txtPasswordVisibility,
             decoration: InputDecoration(
               hintText: 'Masukkan password anda',
