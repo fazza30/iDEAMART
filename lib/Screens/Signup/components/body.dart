@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:flutter_auth/Screens/Signup/components/action_button.dart';
 import 'package:flutter_auth/Screens/Signup/components/header.dart';
 import 'package:flutter_auth/public_components/name_field.dart';
 import 'package:flutter_auth/public_components/rounded_input_field.dart';
 import 'package:flutter_auth/public_components/rounded_password_field.dart';
+import 'package:flutter_auth/controllers/user_controller.dart';
 
 class Body extends StatefulWidget {
   const Body({Key key}) : super(key: key);
@@ -13,14 +15,18 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
+  /*
   TextEditingController txtName1;
   TextEditingController txtName2;
   TextEditingController txtPhone;
   TextEditingController txtPassword;
   bool txtPasswordVisibility;
+  */
+  final UserController userController = Get.put(UserController());
   final formKey = GlobalKey<FormState>();
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
+  /*
   @override
   void initState() {
     super.initState();
@@ -29,7 +35,7 @@ class _BodyState extends State<Body> {
     txtPhone = TextEditingController();
     txtPassword = TextEditingController();
     txtPasswordVisibility = false;
-  }
+  }*/
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +66,7 @@ class _BodyState extends State<Body> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Header(),
-                  RoundedNameField(txtName1: txtName1, txtName2: txtName2),
+                  RoundedNameField(/*txtName1: txtName1, txtName2: txtName2*/),
                   RoundedInputField(),
                   RoundedPasswordField(),
                   ActionButton(),
@@ -73,6 +79,3 @@ class _BodyState extends State<Body> {
     );
   }
 }
-
-
-
