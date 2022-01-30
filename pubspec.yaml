@@ -38,6 +38,7 @@ dependencies:
   easy_debounce: 2.0.1
   pie_chart: ^5.1.0
   flutter_secure_storage : ^4.2.0
+  provider: ^5.0.0
 
 dev_dependencies:
   flutter_test:

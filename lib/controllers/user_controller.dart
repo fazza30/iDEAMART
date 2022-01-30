@@ -6,13 +6,13 @@ import 'package:flutter_auth/services/user_service.dart';
 class UserController extends GetxController {
   //final listUser = <ListUser>[].obs;
   final createUser = CreateUser(
-          msg: "",
-          responseCreateUser: ResponseCreateUser(
-              firstname: "", lastname: "", phone: "", password: "", id: ""))
-      .obs;
-
+          //msg: "",
+          //responseCreateUser: ResponseCreateUser(
+              //firstname: "", lastname: "", phone: "", password: "", id: ""))
+      //.obs;
+  );
   final loginUser = LoginUser(
-          token: "",
+          //token: "",
           responseLoginUser: ResponseLoginUser(phone: "", password: "", id: ""))
       .obs;
 

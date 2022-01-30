@@ -4,10 +4,10 @@ import 'package:flutter_auth/Screens/Login/login_screen.dart';
 import 'package:flutter_auth/public_components/already_have_an_account_acheck.dart';
 import 'package:flutter_auth/public_components/rounded_button.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:flutter_auth/controllers/user_controller.dart';
+//import 'package:flutter_auth/controllers/user_controller.dart';
 
 class ActionButton extends StatelessWidget {
-  final UserController userController = Get.put(UserController());
+  //final UserController userController = Get.put(UserController());
   ActionButton({
     Key key,
   }) : super(key: key);

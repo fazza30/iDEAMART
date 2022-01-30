@@ -33,62 +33,66 @@ class _BodyState extends State<Body> {
   TextEditingController password = new TextEditingController();
   
 
-    login(email,password) async
-  {
+  login(email,password) async {
     Map data = {
-      'email': email,
+      'username': email,
       'password': password
     };
     print(data.toString());
-    final  response= await http.post(
-        Uri.parse(url),
+    var response = await http.post(Uri.parse(url_test),
         headers: {
           "Accept": "application/json",
           "Content-Type": "application/x-www-form-urlencoded"
         },
-
-
         body: data,
         encoding: Encoding.getByName("utf-8")
-    )  ;
-    setState(() {
-      isLoading=false;
-    });
-    if (response.statusCode == 200) {
-      Map<String,dynamic>resposne=jsonDecode(response.body);
-      if(!resposne['error'])
-      {
-        Map<String,dynamic>user=resposne['data'];
-        print(" User name ${user['id']}");
-        savePref(1,user['name'],user['email'],user['id']);
-        Navigator.push(
-          context, 
-          PageTransition( 
-            type: PageTransitionType.bottomToTop,
-            duration: Duration(milliseconds: 300),
-            reverseDuration: Duration(milliseconds: 300),
-            child: HomePage()
-          )
-        );
-      }else{
-        print(" ${resposne['message']}");
-      }
-      scaffoldMessenger.showSnackBar(SnackBar(content:Text("${resposne['message']}")));
+    );
+    
+    // setState((){
+    //   isLoading=false;
+    // });
 
-    } else {
-      scaffoldMessenger.showSnackBar(SnackBar(content:Text("Please try again!")));
+    //print(response.statusCode);
+    if (response.statusCode == 200) {
+      Map<String,dynamic>resposne=json.decode(response.body);
+      final firstname = resposne['firstname'];
+      print("$firstname");
+      Map<String,dynamic>user=resposne['data'];
+      print("$user");
     }
+    //   Map<String,dynamic>resposne=jsonDecode(response.body);
+    //   if(!resposne['status'])
+    //   {
+    //     Map<String,dynamic>user=resposne['data'];
+    //     //print(" Username ${user['data']}");
+    //     //savePref(1,user['data']['username'],user['data']['full_name'],user['login_type'],user['token']);
+    //     Navigator.push(
+    //       context, 
+    //       PageTransition( 
+    //         type: PageTransitionType.bottomToTop,
+    //         duration: Duration(milliseconds: 300),
+    //         reverseDuration: Duration(milliseconds: 300),
+    //         child: HomePage()
+    //       )
+    //     );
+    //   }else{
+    //     print(" ${resposne['message']}");
+    //   }
+    //   scaffoldMessenger.showSnackBar(SnackBar(content:Text("${resposne['message']}")));
+
+    // } else {
+    //   scaffoldMessenger.showSnackBar(SnackBar(content:Text("Please try again!")));
+    // }
   }
 
-  savePref(int value, String name, String email, int id) async {
+  savePref(int value, String username, String fullname, String login_type, String token) async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
 
       preferences.setInt("value", value);
-      preferences.setString("name", name);
-      preferences.setString("email", email);
-      preferences.setString("id", id.toString());
-      
-
+      preferences.setString("username", username);
+      preferences.setString("fullname", fullname);
+      preferences.setString("login_type", login_type);
+      preferences.setString("token", token);
   }
 
   @override
@@ -285,15 +289,7 @@ class _BodyState extends State<Body> {
                           scaffoldMessenger.showSnackBar(SnackBar(content:Text("Please Fill all fileds")));
                           return;
                         }
-                        Navigator.push(
-                          context, 
-                          PageTransition( 
-                            type: PageTransitionType.bottomToTop,
-                            duration: Duration(milliseconds: 300),
-                            reverseDuration: Duration(milliseconds: 300),
-                            child: HomePage()
-                          )
-                        );
+                        login(username.text,password.text);
                       },
                     ),
                     InkWell(

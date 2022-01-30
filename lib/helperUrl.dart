@@ -1,4 +1,4 @@
-const String url = "https://10.0.2.2:8080/school-management/";
+const String url_test = "http://10.0.2.2:4000/users/authenticate";
 
 class MyUrl {
   // String urlDevice = "http://192.168.0.104/school-management/";
