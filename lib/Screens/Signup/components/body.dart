@@ -66,11 +66,7 @@ class _BodyState extends State<Body> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Header(),
-<<<<<<< HEAD
                   RoundedNameField(/*txtName1: txtName1, txtName2: txtName2*/),
-=======
-                  //RoundedNameField(txtName1: txtName1, txtName2: txtName2),
->>>>>>> maliks_branch
                   RoundedInputField(),
                   RoundedPasswordField(),
                   ActionButton(),
