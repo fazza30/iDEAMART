@@ -2,14 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_auth/Screens/Admin/Home/admin_home_screen.dart';
 import 'package:flutter_auth/Screens/Signup/signup_screen.dart';
 import 'package:flutter_auth/Screens/User/Home/home_screen.dart';
-import 'package:flutter_auth/helperUrl.dart';
+//import 'package:flutter_auth/helperUrl.dart';
 import 'package:flutter_auth/public_components/already_have_an_account_acheck.dart';
 import 'package:flutter_auth/public_components/rounded_button.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:http/http.dart' as http;
+//import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'dart:convert';
+//import 'package:flutter_auth/models/user_model.dart';
+import 'package:flutter_auth/models/Login_model.dart';
+//import 'dart:convert';
 
 
 
@@ -31,50 +33,53 @@ class _BodyState extends State<Body> {
   //String url = MyUrl().getUrlDevice();
   TextEditingController username = new TextEditingController();
   TextEditingController password = new TextEditingController();
+  Loginuser dataResponse = Loginuser();
   
 
-  login(email,password) async {
-    Map data = {
-      'username': email,
-      'password': password
-    };
-    print(data.toString());
-    var response = await http.post(Uri.parse(url_test),
-        headers: {
-          "Accept": "application/json",
-          "Content-Type": "application/x-www-form-urlencoded"
-        },
-        body: data,
-        encoding: Encoding.getByName("utf-8")
-    );
+  // login(email,password) async {
+  //   Map data = {
+  //     'username': email,
+  //     'password': password
+  //   };
+  //   print(data.toString());
+  //   var response = await http.post(Uri.parse(login_rest),
+  //       headers: {
+  //         "Accept": "application/json",
+  //         "Content-Type": "application/x-www-form-urlencoded"
+  //       },
+  //       body: data,
+  //       encoding: Encoding.getByName("utf-8")
+  //   );
     
     // setState((){
     //   isLoading=false;
     // });
 
-    //print(response.statusCode);
-    if (response.statusCode == 200) {
-      Map<String,dynamic>resposne=json.decode(response.body);
-      final firstname = resposne['firstname'];
-      print("$firstname");
-      Map<String,dynamic>user=resposne['data'];
-      print("$user");
-    }
+  //   print(response.body);
+  //   if (response.statusCode == 200) {
+  //     Map<String,dynamic>respData=json.decode(response.body);
+  //     print(respData['Username']);
+      //Login_User.fromJson(jsonDecode(response.body));
+      // final firstname = resposne['firstname'];
+      // print("$firstname");
+      // Map<String,dynamic>user=resposne['data'];
+      // print("$user");
+  //   }
     //   Map<String,dynamic>resposne=jsonDecode(response.body);
     //   if(!resposne['status'])
     //   {
     //     Map<String,dynamic>user=resposne['data'];
     //     //print(" Username ${user['data']}");
     //     //savePref(1,user['data']['username'],user['data']['full_name'],user['login_type'],user['token']);
-    //     Navigator.push(
-    //       context, 
-    //       PageTransition( 
-    //         type: PageTransitionType.bottomToTop,
-    //         duration: Duration(milliseconds: 300),
-    //         reverseDuration: Duration(milliseconds: 300),
-    //         child: HomePage()
-    //       )
-    //     );
+        // Navigator.push(
+        //   context, 
+        //   PageTransition( 
+        //     type: PageTransitionType.bottomToTop,
+        //     duration: Duration(milliseconds: 300),
+        //     reverseDuration: Duration(milliseconds: 300),
+        //     child: HomePage()
+        //   )
+        // );
     //   }else{
     //     print(" ${resposne['message']}");
     //   }
@@ -83,15 +88,15 @@ class _BodyState extends State<Body> {
     // } else {
     //   scaffoldMessenger.showSnackBar(SnackBar(content:Text("Please try again!")));
     // }
-  }
+  // }
 
-  savePref(int value, String username, String fullname, String login_type, String token) async {
+  savePref(int value, String username, String fullname, String loginType, String token) async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
 
       preferences.setInt("value", value);
       preferences.setString("username", username);
       preferences.setString("fullname", fullname);
-      preferences.setString("login_type", login_type);
+      preferences.setString("login_type", loginType);
       preferences.setString("token", token);
   }
 
@@ -289,7 +294,29 @@ class _BodyState extends State<Body> {
                           scaffoldMessenger.showSnackBar(SnackBar(content:Text("Please Fill all fileds")));
                           return;
                         }
-                        login(username.text,password.text);
+                        Loginuser.connectAPI(username.text,password.text);
+                        print(username.text);
+                        if(dataResponse.Username == null){
+                          Navigator.push(
+                            context, 
+                            PageTransition( 
+                              type: PageTransitionType.bottomToTop,
+                              duration: Duration(milliseconds: 300),
+                              reverseDuration: Duration(milliseconds: 300),
+                              child: HomePage()
+                            )
+                          );
+                        }else{
+                          print(dataResponse.Message);
+                        }
+                        // .then(
+                        //       (value) {
+                        //     print(value.Username);
+                        //     setState(() {
+                        //       dataResponse = value;
+                        //     });
+                        //   },
+                        // );
                       },
                     ),
                     InkWell(
