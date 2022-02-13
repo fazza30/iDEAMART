@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_auth/Screens/Login/login_screen.dart';
 
 class Header extends StatefulWidget {
   const Header({Key key}) : super(key: key);
@@ -52,11 +53,64 @@ class _HeaderState extends State<Header> {
             ],
           ),
           
-          // NotificationIcon
-          Icon(
-            Icons.notifications,
-            color: Colors.white,
-            size: 30,
+          Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 15, 0),
+            child: Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                // NotificationIcon
+                Icon(
+                  Icons.notifications,
+                  color: Colors.white,
+                  size: 30,
+                ),
+                
+                // LogoutButton
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(15, 0, 0, 0),
+                  child: InkWell(
+                    onTap: () async {
+                      await showDialog(
+                        context: context,
+                        builder: (alertDialogContext) {
+                          return AlertDialog(
+                            title: Text('Peringatan'),
+                            content: Text('Ingin logout ?'),
+                            actions: [
+                              TextButton(
+                                onPressed: () =>
+                                    Navigator.pop(alertDialogContext),
+                                child: Text('Batal'),
+                              ),
+                              TextButton(
+                                onPressed: () async {
+                                  Navigator.pop(alertDialogContext);
+                                  await Navigator.pushAndRemoveUntil(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => LoginScreen(),
+                                    ),
+                                    (r) => false,
+                                  );
+                                  ;
+                                },
+                                child: Text('Ya'),
+                              ),
+                            ],
+                          );
+                        },
+                      );
+                    },
+                    child: Icon(
+                      Icons.logout,
+                      color: Colors.white,
+                      size: 30,
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ],
       ),
