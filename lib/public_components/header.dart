@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_auth/Screens/Login/login_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Header extends StatefulWidget {
   const Header({Key key}) : super(key: key);
@@ -9,6 +10,23 @@ class Header extends StatefulWidget {
 }
 
 class _HeaderState extends State<Header> {
+  String name = '';
+   @override
+  void initState(){
+    super.initState();
+    _loadUserData();
+  }
+
+  _loadUserData() async{
+    SharedPreferences localStorage = await SharedPreferences.getInstance();
+    var user = localStorage.getString('username');
+
+    if(user != null) {
+      setState(() {
+        name = localStorage.getString('username');
+      });
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -41,7 +59,7 @@ class _HeaderState extends State<Header> {
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
                 child: Text(
-                  'Hai, John Doe',
+                  name,
                   style: Theme.of(context).textTheme.bodyText1.copyWith(
                     fontFamily: 'Poppins',
                     color: Colors.white,
@@ -86,6 +104,7 @@ class _HeaderState extends State<Header> {
                               TextButton(
                                 onPressed: () async {
                                   Navigator.pop(alertDialogContext);
+                                  logout();
                                   await Navigator.pushAndRemoveUntil(
                                     context,
                                     MaterialPageRoute(
@@ -93,7 +112,6 @@ class _HeaderState extends State<Header> {
                                     ),
                                     (r) => false,
                                   );
-                                  ;
                                 },
                                 child: Text('Ya'),
                               ),
@@ -115,5 +133,12 @@ class _HeaderState extends State<Header> {
         ],
       ),
     );
+  }
+
+  void logout() async{
+    SharedPreferences localStorage = await SharedPreferences.getInstance();
+    localStorage.remove('username');
+    localStorage.remove('logintype');
+    localStorage.remove('token');
   }
 }

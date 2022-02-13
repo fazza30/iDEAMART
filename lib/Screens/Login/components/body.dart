@@ -62,8 +62,23 @@ class _BodyState extends State<Body> {
       print(respData['Username']);
       if(respData["Login_type"] == "Admin"){
         savePref(respData['Username'], respData['Login_type'], respData['Token']);
+        await Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => AdminHomeScreen(),
+          ),
+        );
       }else{
         savePref(respData['Username'], respData['Login_type'], respData['Token']);
+        Navigator.pushReplacement(
+          context, 
+          PageTransition( 
+            type: PageTransitionType.bottomToTop,
+            duration: Duration(milliseconds: 300),
+            reverseDuration: Duration(milliseconds: 300),
+            child: HomePage()
+          )
+        );
       }
       
     }else{
@@ -268,11 +283,11 @@ class _BodyState extends State<Body> {
                     RoundedButton(
                       text: "MASUK",
                       press: () {
-                        // if(username.text.isEmpty||password.text.isEmpty)
-                        // {
-                        //   scaffoldMessenger.showSnackBar(SnackBar(content:Text("Please Fill all fileds")));
-                        //   return;
-                        // }
+                        if(username.text.isEmpty||password.text.isEmpty)
+                        {
+                          scaffoldMessenger.showSnackBar(SnackBar(content:Text("Please Fill all fileds")));
+                          return;
+                        }
                         login(username.text,password.text);
                         // Loginuser.connectAPI(username.text,password.text);
                         // print(dataResponse.Login_type);
