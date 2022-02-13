@@ -30,11 +30,20 @@ class Loginuser {
     if(hasilResponse.statusCode == 200){
       var data = json.decode(hasilResponse.body);
       print(data['Username']);
-
-      return Loginuser(
-        Username: data["Username"],
-        Login_type: data["Login_type"],
-      );
+      if(data["Login_type"] == "Admin"){
+        String Logintype = "1";
+        return Loginuser(
+          Username: data["Username"],
+          Login_type: Logintype,
+        );
+      }else{
+        String Logintype = "2";
+        return Loginuser(
+          Username: data["Username"],
+          Login_type: Logintype,
+        );
+      }
+      
     }else{
       var data = json.decode(hasilResponse.body);
       print(data['message']);
