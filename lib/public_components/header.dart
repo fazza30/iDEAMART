@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_auth/Screens/Login/login_screen.dart';
+import 'package:flutter_auth/Screens/Profile/profile_screen.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Header extends StatefulWidget {
@@ -44,27 +46,50 @@ class _HeaderState extends State<Header> {
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              // Logo
-              ClipRRect(
-                borderRadius: BorderRadius.circular(45),
-                child: Image.asset(
-                  'assets/images/logo-uin.png',
-                  width: 30,
-                  height: 30,
-                  fit: BoxFit.cover,
+              InkWell(
+                onTap: () async {
+                  await Navigator.push(
+                    context,
+                    PageTransition(
+                      type: PageTransitionType.fade,
+                      duration: Duration(milliseconds: 300),
+                      reverseDuration: Duration(milliseconds: 300),
+                      child: Profile(),
+                    ),
+                  );
+                },
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(45),
+                  child: Image.asset(
+                    'assets/images/logo-uin.png',
+                    width: 30,
+                    height: 30,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
-              
-              // UserName
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
-                child: Text(
-                  name,
-                  style: Theme.of(context).textTheme.bodyText1.copyWith(
-                    fontFamily: 'Poppins',
-                    color: Colors.white,
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
+                child: InkWell(
+                  onTap: () async {
+                    await Navigator.push(
+                      context,
+                      PageTransition(
+                        type: PageTransitionType.fade,
+                        duration: Duration(milliseconds: 300),
+                        reverseDuration: Duration(milliseconds: 300),
+                        child: Profile(),
+                      ),
+                    );
+                  },
+                  child: Text(
+                    'Hai, John Doe',
+                    style:Theme.of(context).textTheme.bodyText1.copyWith(
+                          fontFamily: 'Poppins',
+                          color: Colors.white,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
                   ),
                 ),
               ),
