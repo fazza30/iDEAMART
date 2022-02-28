@@ -36,279 +36,277 @@ class _ContentState extends State<Content> {
       children: [
         Text(
           'Halo, <Nama Pengguna>',
-          style: Theme.of(context).textTheme.titleMedium,
+          style: Theme.of(context).textTheme.titleLarge,
         ),
         Padding(
           padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Text(
-                  'Nama Depan',
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Text(
+                'Nama Depan',
+                style: Theme.of(context).textTheme.titleMedium.copyWith(
+                      fontFamily: 'Poppins',
+                      fontSize: 14,
+                    ),
+              ),
+              TextFormField(
+                controller: textController1,
+                obscureText: false,
+                decoration: InputDecoration(
+                  hintText: 'Mis : John',
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Color(0xFFCFCFCF),
+                      width: 1,
+                    ),
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(4.0),
+                      topRight: Radius.circular(4.0),
+                    ),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Color(0xFFCFCFCF),
+                      width: 1,
+                    ),
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(4.0),
+                      topRight: Radius.circular(4.0),
+                    ),
+                  ),
+                  filled: true,
+                ),
+                style: Theme.of(context).textTheme.bodyText1.copyWith(
+                      fontFamily: 'Poppins',
+                      color: Colors.black,
+                    ),
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                child: Text(
+                  'Nama Belakang',
                   style: Theme.of(context).textTheme.bodyText1.copyWith(
                         fontFamily: 'Poppins',
                         fontSize: 14,
                       ),
                 ),
-                TextFormField(
-                  controller: textController1,
-                  obscureText: false,
-                  decoration: InputDecoration(
-                    hintText: 'Mis : John',
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color(0xFFCFCFCF),
-                        width: 1,
-                      ),
-                      borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(4.0),
-                        topRight: Radius.circular(4.0),
-                      ),
+              ),
+              TextFormField(
+                controller: textController2,
+                obscureText: false,
+                decoration: InputDecoration(
+                  hintText: 'Mis : Doe',
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Color(0xFFCFCFCF),
+                      width: 1,
                     ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color(0xFFCFCFCF),
-                        width: 1,
-                      ),
-                      borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(4.0),
-                        topRight: Radius.circular(4.0),
-                      ),
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(4.0),
+                      topRight: Radius.circular(4.0),
                     ),
-                    filled: true,
                   ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Color(0xFFCFCFCF),
+                      width: 1,
+                    ),
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(4.0),
+                      topRight: Radius.circular(4.0),
+                    ),
+                  ),
+                  filled: true,
+                ),
+                style: Theme.of(context).textTheme.bodyText1.copyWith(
+                      fontFamily: 'Poppins',
+                      color: Colors.black,
+                    ),
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                child: Text(
+                  'No. Telepon',
                   style: Theme.of(context).textTheme.bodyText1.copyWith(
                         fontFamily: 'Poppins',
-                        color: Colors.black,
+                        fontSize: 14,
                       ),
                 ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
-                  child: Text(
-                    'Nama Belakang',
-                    style: Theme.of(context).textTheme.bodyText1.copyWith(
-                          fontFamily: 'Poppins',
-                          fontSize: 14,
-                        ),
+              ),
+              TextFormField(
+                controller: textController3,
+                obscureText: false,
+                decoration: InputDecoration(
+                  hintText: 'Mis : 081234567890',
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Color(0xFFCFCFCF),
+                      width: 1,
+                    ),
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(4.0),
+                      topRight: Radius.circular(4.0),
+                    ),
                   ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Color(0xFFCFCFCF),
+                      width: 1,
+                    ),
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(4.0),
+                      topRight: Radius.circular(4.0),
+                    ),
+                  ),
+                  filled: true,
                 ),
-                TextFormField(
-                  controller: textController2,
-                  obscureText: false,
-                  decoration: InputDecoration(
-                    hintText: 'Mis : Doe',
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color(0xFFCFCFCF),
-                        width: 1,
-                      ),
-                      borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(4.0),
-                        topRight: Radius.circular(4.0),
-                      ),
+                style: Theme.of(context).textTheme.bodyText1.copyWith(
+                      fontFamily: 'Poppins',
+                      color: Colors.black,
                     ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color(0xFFCFCFCF),
-                        width: 1,
-                      ),
-                      borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(4.0),
-                        topRight: Radius.circular(4.0),
-                      ),
-                    ),
-                    filled: true,
-                  ),
+                keyboardType: TextInputType.phone,
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                child: Text(
+                  'Email',
                   style: Theme.of(context).textTheme.bodyText1.copyWith(
                         fontFamily: 'Poppins',
-                        color: Colors.black,
+                        fontSize: 14,
                       ),
                 ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
-                  child: Text(
-                    'No. Telepon',
-                    style: Theme.of(context).textTheme.bodyText1.copyWith(
-                          fontFamily: 'Poppins',
-                          fontSize: 14,
-                        ),
+              ),
+              TextFormField(
+                controller: textController4,
+                obscureText: false,
+                decoration: InputDecoration(
+                  hintText: 'Mis : john.doe19@yourmail.com',
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Color(0xFFCFCFCF),
+                      width: 1,
+                    ),
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(4.0),
+                      topRight: Radius.circular(4.0),
+                    ),
                   ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Color(0xFFCFCFCF),
+                      width: 1,
+                    ),
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(4.0),
+                      topRight: Radius.circular(4.0),
+                    ),
+                  ),
+                  filled: true,
                 ),
-                TextFormField(
-                  controller: textController3,
-                  obscureText: false,
-                  decoration: InputDecoration(
-                    hintText: 'Mis : 081234567890',
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color(0xFFCFCFCF),
-                        width: 1,
-                      ),
-                      borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(4.0),
-                        topRight: Radius.circular(4.0),
-                      ),
+                style: Theme.of(context).textTheme.bodyText1.copyWith(
+                      fontFamily: 'Poppins',
+                      color: Colors.black,
                     ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color(0xFFCFCFCF),
-                        width: 1,
-                      ),
-                      borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(4.0),
-                        topRight: Radius.circular(4.0),
-                      ),
-                    ),
-                    filled: true,
-                  ),
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                child: Text(
+                  'Username',
                   style: Theme.of(context).textTheme.bodyText1.copyWith(
                         fontFamily: 'Poppins',
-                        color: Colors.black,
+                        fontSize: 14,
                       ),
-                  keyboardType: TextInputType.phone,
                 ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
-                  child: Text(
-                    'Email',
-                    style: Theme.of(context).textTheme.bodyText1.copyWith(
-                          fontFamily: 'Poppins',
-                          fontSize: 14,
-                        ),
+              ),
+              TextFormField(
+                controller: textController5,
+                obscureText: false,
+                decoration: InputDecoration(
+                  hintText: 'Mis : johndoe19',
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Color(0xFFCFCFCF),
+                      width: 1,
+                    ),
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(4.0),
+                      topRight: Radius.circular(4.0),
+                    ),
                   ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Color(0xFFCFCFCF),
+                      width: 1,
+                    ),
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(4.0),
+                      topRight: Radius.circular(4.0),
+                    ),
+                  ),
+                  filled: true,
                 ),
-                TextFormField(
-                  controller: textController4,
-                  obscureText: false,
-                  decoration: InputDecoration(
-                    hintText: 'Mis : john.doe19@yourmail.com',
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color(0xFFCFCFCF),
-                        width: 1,
-                      ),
-                      borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(4.0),
-                        topRight: Radius.circular(4.0),
-                      ),
+                style: Theme.of(context).textTheme.bodyText1.copyWith(
+                      fontFamily: 'Poppins',
+                      color: Colors.black,
                     ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color(0xFFCFCFCF),
-                        width: 1,
-                      ),
-                      borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(4.0),
-                        topRight: Radius.circular(4.0),
-                      ),
-                    ),
-                    filled: true,
-                  ),
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                child: Text(
+                  'Password',
                   style: Theme.of(context).textTheme.bodyText1.copyWith(
                         fontFamily: 'Poppins',
-                        color: Colors.black,
+                        fontSize: 14,
                       ),
                 ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
-                  child: Text(
-                    'Username',
-                    style: Theme.of(context).textTheme.bodyText1.copyWith(
-                          fontFamily: 'Poppins',
-                          fontSize: 14,
-                        ),
-                  ),
-                ),
-                TextFormField(
-                  controller: textController5,
-                  obscureText: false,
-                  decoration: InputDecoration(
-                    hintText: 'Mis : johndoe19',
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color(0xFFCFCFCF),
-                        width: 1,
-                      ),
-                      borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(4.0),
-                        topRight: Radius.circular(4.0),
-                      ),
+              ),
+              TextFormField(
+                controller: textController6,
+                obscureText: !passwordVisibility,
+                decoration: InputDecoration(
+                  hintText: '************',
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Color(0xFFCFCFCF),
+                      width: 1,
                     ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color(0xFFCFCFCF),
-                        width: 1,
-                      ),
-                      borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(4.0),
-                        topRight: Radius.circular(4.0),
-                      ),
-                    ),
-                    filled: true,
-                  ),
-                  style: Theme.of(context).textTheme.bodyText1.copyWith(
-                        fontFamily: 'Poppins',
-                        color: Colors.black,
-                      ),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
-                  child: Text(
-                    'Password',
-                    style: Theme.of(context).textTheme.bodyText1.copyWith(
-                          fontFamily: 'Poppins',
-                          fontSize: 14,
-                        ),
-                  ),
-                ),
-                TextFormField(
-                  controller: textController6,
-                  obscureText: !passwordVisibility,
-                  decoration: InputDecoration(
-                    hintText: '************',
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color(0xFFCFCFCF),
-                        width: 1,
-                      ),
-                      borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(4.0),
-                        topRight: Radius.circular(4.0),
-                      ),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color(0xFFCFCFCF),
-                        width: 1,
-                      ),
-                      borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(4.0),
-                        topRight: Radius.circular(4.0),
-                      ),
-                    ),
-                    filled: true,
-                    suffixIcon: InkWell(
-                      onTap: () => setState(
-                        () => passwordVisibility = !passwordVisibility,
-                      ),
-                      child: Icon(
-                        passwordVisibility
-                            ? Icons.visibility_outlined
-                            : Icons.visibility_off_outlined,
-                        color: Color(0xFF757575),
-                        size: 22,
-                      ),
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(4.0),
+                      topRight: Radius.circular(4.0),
                     ),
                   ),
-                  style: Theme.of(context).textTheme.bodyText1.copyWith(
-                        fontFamily: 'Poppins',
-                        color: Colors.black,
-                      ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Color(0xFFCFCFCF),
+                      width: 1,
+                    ),
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(4.0),
+                      topRight: Radius.circular(4.0),
+                    ),
+                  ),
+                  filled: true,
+                  suffixIcon: InkWell(
+                    onTap: () => setState(
+                      () => passwordVisibility = !passwordVisibility,
+                    ),
+                    child: Icon(
+                      passwordVisibility
+                          ? Icons.visibility_outlined
+                          : Icons.visibility_off_outlined,
+                      color: Color(0xFF757575),
+                      size: 22,
+                    ),
+                  ),
                 ),
-              ],
-            ),
+                style: Theme.of(context).textTheme.bodyText1.copyWith(
+                      fontFamily: 'Poppins',
+                      color: Colors.black,
+                    ),
+              ),
+            ],
           ),
         ),
         Padding(

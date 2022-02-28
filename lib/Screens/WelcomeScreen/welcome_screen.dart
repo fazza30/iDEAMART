@@ -17,7 +17,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _checkIfLoggedIn();
   }
