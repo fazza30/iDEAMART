@@ -26,7 +26,7 @@ class UserService {
     }
   }
 
-  static Future<LoginUser> loginUser(String phone, String password) async {
+  static Future<d> loginUser(String phone, String password) async {
     final response = await http.post(Uri.parse(Envirotment.endpointLoginUser),
         headers: {
           'Content-Type': 'application/json; charset=UTF-8',

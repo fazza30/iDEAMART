@@ -21,7 +21,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     _checkIfLoggedIn();
   }
 
-    void _checkIfLoggedIn() async {
+  void _checkIfLoggedIn() async {
     SharedPreferences localStorage = await SharedPreferences.getInstance();
     var logintype = localStorage.getString('logintype');
     if(logintype != null){
@@ -51,13 +51,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 
     return Scaffold(
       key: scaffoldKey,
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        automaticallyImplyLeading: false,
-        actions: [],
-        centerTitle: true,
-        elevation: 0,
-      ),
       backgroundColor: Color(0xFFF5F5F5),
       body: child,
     );

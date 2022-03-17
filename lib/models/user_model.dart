@@ -13,102 +13,63 @@ class CreateUser {
 
 class ResponseCreateUser {
   String id;
-  String firstname;
-  String lastname;
-  String phone;
+  String first_name;
+  String last_name;
+  String username;
   String password;
+  String login_type;
 
   ResponseCreateUser(
-      {this.id, this.firstname, this.lastname, this.phone, this.password});
+      {this.id,
+      this.first_name,
+      this.last_name,
+      this.username,
+      this.password,
+      this.login_type});
 
   factory ResponseCreateUser.fromJson(Map<String, dynamic> json) {
     return ResponseCreateUser(
         id: json["id"],
-        firstname: json["firstname"],
-        lastname: json["lastname"],
-        phone: json["phone"],
-        password: json["password"]);
+        first_name: json["first_name"],
+        last_name: json["last_name"],
+        username: json["username"],
+        password: json["password"],
+        login_type: json["login_type"]);
   }
 }
 
-class LoginUser {
-  final String token;
-  ResponseLoginUser responseLoginUser;
+class ResponseSuccessLogin {
+  String token;
+  ResponseDataUser responseDataUser;
+  ResponseSuccessLogin({this.token, this.responseDataUser});
 
-  LoginUser({this.token, this.responseLoginUser});
-
-  Map<String, String> toJson() => {
-        'token': token,
-      };
-
-  factory LoginUser.fromJson(Map<String, dynamic> json) {
-    return LoginUser(
-        responseLoginUser: ResponseLoginUser.fromJson(json["user"]),
-        token: json['token']);
+  factory ResponseSuccessLogin.fromJson(Map<String, dynamic> parsedJson) {
+    return ResponseSuccessLogin(
+        token: parsedJson['token'],
+        responseDataUser: ResponseDataUser.fromJson(parsedJson['user']));
   }
 }
 
-class ResponseLoginUser {
+class ResponseDataUser {
   String id;
-  String phone;
-  String password;
+  String username;
+  String email;
 
-  ResponseLoginUser({this.id, this.phone, this.password});
+  ResponseDataUser({this.id, this.username, this.email});
 
-  factory ResponseLoginUser.fromJson(Map<String, dynamic> json) {
-    return ResponseLoginUser(
-        id: json["id"], phone: json["phone"], password: json["password"]);
+  factory ResponseDataUser.fromJson(Map<String, dynamic> json) {
+    return ResponseDataUser(
+        id: json["_id"], username: json["name"], email: json["email"]);
   }
 }
 
-/*
-class ReadUser {
-  List<ListUser> listUser;
+class ResponseSuccessError {
+  String msg;
+  ResponseSuccessError({this.msg});
 
-  ReadUser({this.listUser});
-
-  factory ReadUser.fromJson(Map<String, dynamic> json) {
-    var list = json["ListUser"] as List;
-    List<ListUser> listUser_ = list.map((e) => ListUser.fromJson(e)).toList();
-    return ReadUser(
-      listUser: listUser_,
+  factory ResponseSuccessError.fromJson(Map<String, dynamic> parsedJson) {
+    return ResponseSuccessError(
+      msg: parsedJson['msg'],
     );
   }
 }
-class ListUser {
-  String id;
-  String firstname;
-  String lastname;
-  String phone;
-  String email;
-  String username;
-  String password;
-
-  ListUser(
-      {this.id,
-        this.firstname,
-        this.lastname,
-        this.phone,
-        this.email,
-        this.username,
-        this.password});
-
-  factory ListUser.fromJson(Map<String, dynamic> json) {
-    return ListUser(
-        id: json["_id"],
-        firstname: json["firstname"],
-        lastname: json["lastname"],
-        phone: json["phone"],
-        email: json["email"],
-        username: json["username"],
-        password: json["password"]);
-  }
-}
-*/
-/*
-class AfterLogin {
-  List<ListLogin> listLogin;
-  AfterLogin({required this.listLogin});
-}
-*/
-
