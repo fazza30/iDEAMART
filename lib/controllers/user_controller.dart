@@ -10,10 +10,10 @@ class UserController extends GetxController {
               //firstname: "", lastname: "", phone: "", password: "", id: ""))
       //.obs;
   );
-  final loginUser = LoginUser(
-          //token: "",
-          responseLoginUser: ResponseLoginUser(phone: "", password: "", id: ""))
-      .obs;
+  // final loginUser = LoginUser(
+  //         //token: "",
+  //         responseLoginUser: ResponseLoginUser(phone: "", password: "", id: ""))
+  //     .obs;
 
   final TextEditingController firstnameEditingController =
       TextEditingController();

@@ -2,14 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_auth/Screens/User/Testing/testing_page.dart';
 import 'package:page_transition/page_transition.dart';
 
-class ChoiceBased extends StatefulWidget {
-  const ChoiceBased({Key key}) : super(key: key);
-
-  @override
-  _ChoiceBasedState createState() => _ChoiceBasedState();
-}
-
-class _ChoiceBasedState extends State<ChoiceBased> {
+class ChoiceBased extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(

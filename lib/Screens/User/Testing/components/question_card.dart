@@ -1,13 +1,6 @@
 import 'package:flutter/material.dart';
 
-class QuestionCard extends StatefulWidget {
-  const QuestionCard({Key key}) : super(key: key);
-
-  @override
-  _QuestionCardState createState() => _QuestionCardState();
-}
-
-class _QuestionCardState extends State<QuestionCard> {
+class QuestionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(

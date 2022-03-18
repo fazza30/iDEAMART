@@ -5,14 +5,8 @@ import 'package:flutter_auth/Screens/User/Testing/components/question_card.dart'
 import 'package:flutter_auth/Screens/User/Testing/components/question_counter.dart';
 import 'package:flutter_animation_progress_bar/flutter_animation_progress_bar.dart';
 
-class TestingPage extends StatefulWidget {
-  const TestingPage({Key key}) : super(key: key);
 
-  @override
-  _TestingPageState createState() => _TestingPageState();
-}
-
-class _TestingPageState extends State<TestingPage> {
+class TestingPage extends StatelessWidget {
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override

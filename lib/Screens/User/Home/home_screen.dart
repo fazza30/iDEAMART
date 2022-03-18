@@ -4,14 +4,7 @@ import 'package:flutter_auth/public_components/header.dart';
 import 'package:flutter_auth/public_components/background.dart';
 import 'package:flutter_auth/public_components/jumbotron.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key key}) : super(key: key);
-
-  @override
-  _HomePageState createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
+class HomePage extends StatelessWidget {
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override

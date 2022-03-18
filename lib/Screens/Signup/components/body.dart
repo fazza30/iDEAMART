@@ -1,4 +1,6 @@
 // Import packages
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:flutter_auth/public_components/phone_number_input.dart';
 import 'package:flutter_auth/public_components/rounded_password_field.dart';
@@ -9,15 +11,7 @@ import 'package:flutter_auth/Screens/Signup/components/action_button.dart';
 import 'package:flutter_auth/Screens/Signup/components/header.dart';
 import 'package:flutter_auth/controllers/user_controller.dart';
 
-class Body extends StatefulWidget {
-  const Body({Key key}) : super(key: key);
-
-  @override
-  _BodyState createState() => _BodyState();
-}
-
-class _BodyState extends State<Body> {
-  // Declaration
+class Body extends StatelessWidget {
   TextEditingController txtName1Controller;
   TextEditingController txtName2Controller;
   TextEditingController txtPhoneController1;
@@ -27,8 +21,7 @@ class _BodyState extends State<Body> {
   final UserController userController = Get.put(UserController());
   final formKey = GlobalKey<FormState>();
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
-  // Code playground
+  
   @override
   Widget build(BuildContext context) {
     return Form(

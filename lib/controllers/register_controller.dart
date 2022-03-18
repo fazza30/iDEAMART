@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:get/get.dart';
 import 'package:flutter_auth/models/user_model.dart';
+import 'package:get/get.dart';
 
 
 class RegisterController extends GetxController {
@@ -13,7 +13,7 @@ class RegisterController extends GetxController {
   final createUser = CreateUser(
           msg: "",
           responseCreateUser: ResponseCreateUser(
-              id: "", firstname: "", lastname: "", username: "", password: ""))
+              id: "", first_name: "", last_name: "", username: "", password: ""))
       .obs;
   final TextEditingController firstnameEditingController =
       TextEditingController();

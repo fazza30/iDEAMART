@@ -1,13 +1,8 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 
-class Content extends StatefulWidget {
-  const Content({Key key}) : super(key: key);
-
-  @override
-  _ContentState createState() => _ContentState();
-}
-
-class _ContentState extends State<Content> {
+class Content extends StatelessWidget {
   TextEditingController textController1;
   TextEditingController textController2;
   TextEditingController textController3;
@@ -15,18 +10,6 @@ class _ContentState extends State<Content> {
   TextEditingController textController5;
   TextEditingController textController6;
   bool passwordVisibility;
-
-  @override
-  void initState() {
-    super.initState();
-    textController1 = TextEditingController();
-    textController2 = TextEditingController();
-    textController3 = TextEditingController();
-    textController4 = TextEditingController();
-    textController5 = TextEditingController();
-    textController6 = TextEditingController();
-    passwordVisibility = false;
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -289,8 +272,8 @@ class _ContentState extends State<Content> {
                   ),
                   filled: true,
                   suffixIcon: InkWell(
-                    onTap: () => setState(
-                      () => passwordVisibility = !passwordVisibility,
+                    onTap: () => (
+                      () => passwordVisibility = !passwordVisibility
                     ),
                     child: Icon(
                       passwordVisibility
@@ -358,3 +341,4 @@ class _ContentState extends State<Content> {
     );
   }
 }
+
