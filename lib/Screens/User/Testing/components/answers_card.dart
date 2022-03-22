@@ -1,14 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class AnswersCard extends StatefulWidget {
-  const AnswersCard({Key key}) : super(key: key);
-
-  @override
-  _AnswersCardState createState() => _AnswersCardState();
-}
-
-class _AnswersCardState extends State<AnswersCard> {
+class AnswersCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(

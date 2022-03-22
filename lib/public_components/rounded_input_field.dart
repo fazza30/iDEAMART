@@ -6,7 +6,8 @@ class RoundedInputField extends StatelessWidget {
   final UserController userController = Get.put(UserController());
   final String hintText;
   final ValueChanged<String> onChanged;
-  /*const*/ RoundedInputField({
+  
+  RoundedInputField({
     Key key,
     this.hintText,
     this.onChanged,

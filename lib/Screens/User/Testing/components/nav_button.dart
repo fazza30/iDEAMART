@@ -3,14 +3,7 @@ import 'package:flutter_auth/Screens/User/Home/home_screen.dart';
 import 'package:flutter_auth/Screens/User/Result/result_screen.dart';
 import 'package:page_transition/page_transition.dart';
 
-class NavButton extends StatefulWidget {
-  const NavButton({Key key}) : super(key: key);
-
-  @override
-  _NavButtonState createState() => _NavButtonState();
-}
-
-class _NavButtonState extends State<NavButton> {
+class NavButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(

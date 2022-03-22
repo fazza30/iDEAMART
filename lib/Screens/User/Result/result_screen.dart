@@ -1,4 +1,4 @@
-// ignore_for_file: deprecated_member_use
+// ignore_for_file: deprecated_member_use, must_be_immutable
 
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
@@ -6,24 +6,10 @@ import 'package:flutter_auth/Screens/User/Home/home_screen.dart';
 import 'package:flutter_auth/public_components/rounded_button.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:page_transition/page_transition.dart';
-
-class ResultScreen extends StatefulWidget {
-  const ResultScreen({Key key}) : super(key: key);
-
-  @override
-  _ResultScreenState createState() => _ResultScreenState();
-}
-
-class _ResultScreenState extends State<ResultScreen> {
+class ResultScreen extends StatelessWidget {
   TextEditingController textController;
   final formKey = GlobalKey<FormState>();
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
-  @override
-  void initState() {
-    super.initState();
-    textController = TextEditingController();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -103,7 +89,7 @@ class _ResultScreenState extends State<ResultScreen> {
                                 onChanged: (_) => EasyDebounce.debounce(
                                   'textController',
                                   Duration(milliseconds: 100),
-                                  () => setState(() {}),
+                                  () => (() {}),
                                 ),
                                 controller: textController,
                                 obscureText: false,
@@ -129,8 +115,8 @@ class _ResultScreenState extends State<ResultScreen> {
                                   ),
                                   suffixIcon: textController.text.isNotEmpty
                                       ? InkWell(
-                                          onTap: () => setState(
-                                            () => textController.clear(),
+                                          onTap: () => (
+                                            () => textController.clear()
                                           ),
                                           child: Icon(
                                             Icons.clear,

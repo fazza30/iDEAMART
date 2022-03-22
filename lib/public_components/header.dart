@@ -54,7 +54,7 @@ class _HeaderState extends State<Header> {
                       type: PageTransitionType.fade,
                       duration: Duration(milliseconds: 300),
                       reverseDuration: Duration(milliseconds: 300),
-                      child: Profile(),
+                      child: ProfileScreen(),
                     ),
                   );
                 },
@@ -78,7 +78,7 @@ class _HeaderState extends State<Header> {
                         type: PageTransitionType.fade,
                         duration: Duration(milliseconds: 300),
                         reverseDuration: Duration(milliseconds: 300),
-                        child: Profile(),
+                        child: ProfileScreen(),
                       ),
                     );
                   },

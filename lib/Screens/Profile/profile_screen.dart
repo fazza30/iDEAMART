@@ -2,20 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_auth/Screens/Profile/components/content.dart';
 import 'package:flutter_auth/public_components/background.dart';
 
-class Profile extends StatefulWidget {
-  const Profile({Key key}) : super(key: key);
-
-  @override
-  _ProfileState createState() => _ProfileState();
-}
-
-class _ProfileState extends State<Profile> {
+class ProfileScreen extends StatelessWidget {
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
-    // final isKeyboard = MediaQuery.of(context).viewInsets.bottom != 0;
-
     return Scaffold(
       key: scaffoldKey,
       appBar: AppBar(

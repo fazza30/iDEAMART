@@ -2,14 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_auth/Screens/User/Testing/testing_page.dart';
 import 'package:page_transition/page_transition.dart';
 
-class Mandatory extends StatefulWidget {
-  const Mandatory({Key key}) : super(key: key);
-
-  @override
-  _MandatoryState createState() => _MandatoryState();
-}
-
-class _MandatoryState extends State<Mandatory> {
+class Mandatory extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(

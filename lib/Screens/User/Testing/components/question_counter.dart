@@ -1,13 +1,6 @@
 import 'package:flutter/material.dart';
 
-class QuestionCounter extends StatefulWidget {
-  const QuestionCounter({Key key}) : super(key: key);
-
-  @override
-  _QuestionCounterState createState() => _QuestionCounterState();
-}
-
-class _QuestionCounterState extends State<QuestionCounter> {
+class QuestionCounter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(

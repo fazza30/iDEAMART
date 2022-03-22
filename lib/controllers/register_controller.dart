@@ -1,49 +1,43 @@
 import 'package:flutter/cupertino.dart';
-import 'package:get/get.dart';
 import 'package:flutter_auth/models/user_model.dart';
+import 'package:get/get.dart';
 
-class UserController extends GetxController {
+
+class RegisterController extends GetxController {
   //final listUser = <ListUser>[].obs;
-  final createUser = CreateUser(
-          //msg: "",
-          //responseCreateUser: ResponseCreateUser(
-              //firstname: "", lastname: "", phone: "", password: "", id: ""))
-      //.obs;
-  );
-  // final loginUser = LoginUser(
-  //         //token: "",
-  //         responseLoginUser: ResponseLoginUser(phone: "", password: "", id: ""))
-  //     .obs;
+  final isLoading = false.obs;
 
+  //inisialisasi hide password dalam bentuk obs
+  var txtPasswordVisibility = true.obs;
+
+  final createUser = CreateUser(
+          msg: "",
+          responseCreateUser: ResponseCreateUser(
+              id: "", first_name: "", last_name: "", username: "", password: ""))
+      .obs;
   final TextEditingController firstnameEditingController =
       TextEditingController();
   final TextEditingController lastnameEditingController =
       TextEditingController();
-  final TextEditingController phoneEditingController = TextEditingController();
+  final TextEditingController usernameEditingController =
+      TextEditingController();
   final TextEditingController passwordEditingController =
       TextEditingController();
+  //final TextEditingController logintypeController = TextEditingController();
 
-/*
-  @override
-  void onInit() {
-    readUser();
-    super.onInit();
-  }
-*/
+  // void registerDataUser() async {
+  //   try {
+  //     var response = await UserService.createNewUser(
+  //         firstnameEditingController.text,
+  //         lastnameEditingController.text,
+  //         usernameEditingController.text,
+  //         passwordEditingController.text);
+  //     Get.back();
+  //   } catch (e) {
+  //     print(e);
+  //   }
+  // }
 
-  void createDataUser() async {
-    try {
-      print('response.msg');
-      // var response = await UserService.createNewUser(
-      //     firstnameEditingController.text,
-      //     lastnameEditingController.text,
-      //     phoneEditingController.text,
-      //     passwordEditingController.text);
-      Get.back();
-    } catch (e) {
-      print(e);
-    }
-  }
 /*
   void loginDataUser() async{
     try {

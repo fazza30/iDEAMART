@@ -2,15 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_auth/Screens/User/Home/components/choice_based.dart';
 import 'package:flutter_auth/Screens/User/Home/components/mandatory.dart';
 import 'package:flutter_auth/Screens/User/Home/components/my_progress.dart';
-
-class Body extends StatefulWidget {
-  const Body({Key key}) : super(key: key);
-
-  @override
-  _BodyState createState() => _BodyState();
-}
-
-class _BodyState extends State<Body> {
+class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(

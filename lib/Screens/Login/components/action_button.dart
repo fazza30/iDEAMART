@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_auth/Screens/Admin/Home/admin_home_screen.dart';
 import 'package:flutter_auth/Screens/Signup/signup_screen.dart';
 import 'package:flutter_auth/Screens/User/Home/home_screen.dart';
 import 'package:flutter_auth/public_components/already_have_an_account_acheck.dart';
@@ -48,24 +47,6 @@ class ActionButton extends StatelessWidget {
               );
             },
           ),
-          InkWell(
-            onTap: () async {
-              await Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => AdminHomeScreen(),
-                ),
-              );
-            },
-            child: Text(
-              'Admin Login (alpha tester)',
-              style: Theme.of(context).textTheme.bodyText1.copyWith(
-                fontStyle: FontStyle.italic,
-                fontFamily: 'Poppins',
-                fontSize: 10
-              )
-            ),
-          )
         ],
       ),
     );

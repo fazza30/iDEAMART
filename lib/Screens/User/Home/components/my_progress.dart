@@ -1,14 +1,8 @@
+// ignore_for_file: override_on_non_overriding_member
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
-class MyProgress extends StatefulWidget {
-  const MyProgress({Key key}) : super(key: key);
-
-  @override
-  _MyProgressState createState() => _MyProgressState();
-}
-
-class _MyProgressState extends State<MyProgress> {
+class MyProgress extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
