@@ -9,6 +9,7 @@ class Content extends StatelessWidget {
   TextEditingController textController4;
   TextEditingController textController5;
   TextEditingController textController6;
+  TextEditingController textController7;
   bool passwordVisibility;
 
   @override
@@ -27,6 +28,7 @@ class Content extends StatelessWidget {
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
+              // Nama Depan
               Text(
                 'Nama Depan',
                 style: Theme.of(context).textTheme.titleMedium.copyWith(
@@ -66,6 +68,7 @@ class Content extends StatelessWidget {
                       color: Colors.black,
                     ),
               ),
+              // Nama Belakang
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                 child: Text(
@@ -108,6 +111,7 @@ class Content extends StatelessWidget {
                       color: Colors.black,
                     ),
               ),
+              // No. Telepon
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                 child: Text(
@@ -151,6 +155,40 @@ class Content extends StatelessWidget {
                     ),
                 keyboardType: TextInputType.phone,
               ),
+              // Pekerjaan
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                child: Text(
+                  'Pekerjaan',
+                  style: Theme.of(context).textTheme.bodyText1.copyWith(
+                        fontFamily: 'Poppins',
+                        fontSize: 14,
+                      ),
+                ),
+              ),
+              TextFormField(
+                controller: textController4,
+                obscureText: false,
+                decoration: InputDecoration(
+                  hintText: 'Mis : Pawang Hujan',
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Colors.black,
+                      width: 1,
+                    ),
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Colors.black,
+                      width: 1,
+                    ),
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                ),
+                style: Theme.of(context).textTheme.bodyText1,
+              ),
+              // Email
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                 child: Text(
@@ -162,7 +200,7 @@ class Content extends StatelessWidget {
                 ),
               ),
               TextFormField(
-                controller: textController4,
+                controller: textController5,
                 obscureText: false,
                 decoration: InputDecoration(
                   hintText: 'Mis : john.doe19@yourmail.com',
@@ -193,6 +231,7 @@ class Content extends StatelessWidget {
                       color: Colors.black,
                     ),
               ),
+              // Username
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                 child: Text(
@@ -204,7 +243,7 @@ class Content extends StatelessWidget {
                 ),
               ),
               TextFormField(
-                controller: textController5,
+                controller: textController6,
                 obscureText: false,
                 decoration: InputDecoration(
                   hintText: 'Mis : johndoe19',
@@ -235,6 +274,7 @@ class Content extends StatelessWidget {
                       color: Colors.black,
                     ),
               ),
+              // Password
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                 child: Text(
@@ -246,7 +286,7 @@ class Content extends StatelessWidget {
                 ),
               ),
               TextFormField(
-                controller: textController6,
+                controller: textController7,
                 obscureText: !passwordVisibility,
                 decoration: InputDecoration(
                   hintText: '************',
