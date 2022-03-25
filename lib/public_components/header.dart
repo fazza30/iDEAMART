@@ -83,7 +83,7 @@ class _HeaderState extends State<Header> {
                     );
                   },
                   child: Text(
-                    'Hai, John Doe',
+                    name,
                     style:Theme.of(context).textTheme.bodyText1.copyWith(
                           fontFamily: 'Poppins',
                           color: Colors.white,

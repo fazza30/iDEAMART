@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_auth/Screens/Signup/signup_screen.dart';
-import 'package:flutter_auth/Screens/User/Home/home_screen.dart';
+//import 'package:flutter_auth/Screens/Admin/Home/admin_home_screen.dart';
+import 'package:flutter_auth/Screens/Login/login_screen.dart';
+//import 'package:flutter_auth/Screens/Signup/signup_screen.dart';
+//import 'package:flutter_auth/Screens/User/Home/home_screen.dart';
+import 'package:flutter_auth/controllers/login_controller.dart';
 import 'package:flutter_auth/public_components/already_have_an_account_acheck.dart';
 import 'package:flutter_auth/public_components/rounded_button.dart';
-import 'package:page_transition/page_transition.dart';
+//import 'package:flutter_auth/utils/utils.dart';
+//import 'package:page_transition/page_transition.dart';
+import 'package:get/get.dart';
 
 class ActionButton extends StatelessWidget {
-  const ActionButton({
-    Key key,
-  }) : super(key: key);
-
+  final userController = Get.put(LoginController());
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -22,29 +24,13 @@ class ActionButton extends StatelessWidget {
           AlreadyHaveAnAccountCheck(
             login: true,
             press: () {
-              Navigator.push(
-                context,
-                PageTransition( 
-                  type: PageTransitionType.bottomToTop,
-                  duration: Duration(milliseconds: 300),
-                  reverseDuration: Duration(milliseconds: 300),
-                  child: SignUpScreen()
-                )
-              );
+              Get.to(() => LoginScreen());
             },
           ),
           RoundedButton(
             text: "MASUK",
             press: () {
-              Navigator.push(
-                context, 
-                PageTransition( 
-                  type: PageTransitionType.bottomToTop,
-                  duration: Duration(milliseconds: 300),
-                  reverseDuration: Duration(milliseconds: 300),
-                  child: HomePage()
-                )
-              );
+              userController.userLogin();
             },
           ),
         ],

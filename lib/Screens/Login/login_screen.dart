@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_auth/Screens/Login/components/body.dart';
-class LoginScreen extends StatelessWidget {
-final formKey = GlobalKey<FormState>();
-  final scaffoldKey = GlobalKey<ScaffoldState>();
 
+class LoginScreen extends StatelessWidget {
+  LoginScreen({Key key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: formKey,
       autovalidateMode: AutovalidateMode.always,
       child: Scaffold(
-        key: scaffoldKey,
         appBar: AppBar(
           backgroundColor: Colors.white,
           automaticallyImplyLeading: true,
