@@ -388,3 +388,67 @@ class Password extends StatelessWidget {
     );
   }
 }
+
+// -------------------------------------------------------------------------
+// Confirm Password Field
+class CPassword extends StatelessWidget {
+  final userController = Get.put(
+      RegisterController()); //inisialisasi menggunakan get dari RegisterController
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.max,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Konfirmasi Password',
+          style: Theme.of(context).textTheme.bodyText1.copyWith(fontFamily: 'Poppins'),
+        ),
+        Obx((() => TextFormField(
+              controller: userController.passwordEditingController,
+              obscureText: userController.txtPasswordVisibility.value,
+              decoration: InputDecoration(
+                hintText: 'Masukkan password Anda',
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: Colors.black,
+                    width: 1,
+                  ),
+                  borderRadius: BorderRadius.circular(4),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: Colors.black,
+                    width: 1,
+                  ),
+                  borderRadius: BorderRadius.circular(4),
+                ),
+                suffixIcon: InkWell(
+                  onTap: () {
+                    userController.txtPasswordVisibility.value =
+                      !userController.txtPasswordVisibility.value;
+                  },
+                  child: Icon(
+                    userController.txtPasswordVisibility.value
+                        ? Icons.visibility_outlined
+                        : Icons.visibility_off_outlined,
+                    color: Color(0xFF757575),
+                    size: 22,
+                  ),
+                ),
+              ),
+              style: Theme.of(context).textTheme.bodyText1.copyWith(fontFamily: 'Poppins'),
+              validator: (val) {
+                if (val.isEmpty) {
+                  return 'Bagian ini harus diisi !';
+                }
+                return null;
+              },
+            )
+          )
+        )
+      ],
+    );
+  }
+}
