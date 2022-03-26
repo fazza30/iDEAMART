@@ -4,6 +4,7 @@ import 'package:flutter_auth/models/Register_model.dart';
 import 'package:http/http.dart' as http;
 
 class RegisterService {
+  // ignore: non_constant_identifier_names
   static Future<CreateUser> createNewUser(String first_name, String last_name,
       String username, String password) async {
     final response = await http.post(Uri.parse(Envirotment.endpointCreateUser),

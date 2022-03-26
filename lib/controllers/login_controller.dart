@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_auth/Screens/Admin/Home/admin_home_screen.dart';
-import 'package:flutter_auth/Screens/Login/login_screen.dart';
 import 'package:flutter_auth/Screens/User/Home/home_screen.dart';
 //import 'package:flutter_auth/services/login_service.dart';
 import 'package:get/get.dart';

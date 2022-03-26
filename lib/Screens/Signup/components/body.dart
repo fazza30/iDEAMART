@@ -2,14 +2,12 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:flutter/material.dart';
-import 'package:flutter_auth/public_components/phone_number_input.dart';
-import 'package:flutter_auth/public_components/rounded_password_field.dart';
-import 'package:flutter_auth/public_components/username_input.dart';
 import 'package:get/get.dart';
-import 'package:flutter_auth/public_components/name_input.dart';
 import 'package:flutter_auth/Screens/Signup/components/action_button.dart';
 import 'package:flutter_auth/Screens/Signup/components/header.dart';
 import 'package:flutter_auth/controllers/user_controller.dart';
+
+import '../../../public_components/input_field.dart';
 
 class Body extends StatelessWidget {
   TextEditingController txtName1Controller;
@@ -55,21 +53,45 @@ class Body extends StatelessWidget {
 
                   // Form goes on
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(30, 30, 30, 0),
+                    padding: EdgeInsetsDirectional.fromSTEB(20, 30, 20, 0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         // First and Last Name Field
-                        Name(txtName1Controller: txtName1Controller, txtName2Controller: txtName2Controller),
-
-                        // Phone Number Field
-                        PhoneNumber(txtPhoneController1: txtPhoneController1),
-
-                        // Username Field
-                        Username(txtPhoneController2: txtPhoneController2),
-
-                        // Password Field
-                        Password(),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Expanded(
+                                child: Padding(
+                                  padding:
+                                      EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
+                                  child: FirstName(firstNameTextFieldController: txtName1Controller,),
+                                ),
+                              ),
+                              Expanded(
+                                child: Padding(
+                                  padding:
+                                      EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                                  child: LastName(lastNameTextFieldController: txtName2Controller,),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
+                          child: Phone(phoneTextFieldController: txtPhoneController1,),
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
+                          child: Username(),
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
+                          child: Password(),
+                        ),
                       ],
                     ),
                   ),

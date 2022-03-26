@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable, camel_case_types
+
 import 'package:flutter/material.dart';
 
 abstract class CustomButtonAbs extends StatelessWidget {
