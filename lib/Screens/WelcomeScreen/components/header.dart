@@ -16,7 +16,7 @@ class Header extends StatelessWidget {
           // Image Icon
           Image.asset(
             "assets/images/logo-perusahaan.png",
-            width: 320,
+            width: 200,
           ),
           // End of Title
 

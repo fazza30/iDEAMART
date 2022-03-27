@@ -12,6 +12,7 @@ class Body extends StatelessWidget {
   final userController = Get.put(LoginController());
   @override
   Widget build(BuildContext context) {
+    final isKeyboard = MediaQuery.of(context).viewInsets.bottom != 0;
     return SafeArea(
       child: Container(
         width: double.infinity,
@@ -25,7 +26,7 @@ class Body extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text(
+              if (!isKeyboard) Text(
                 'MASUK',
                 style: Theme.of(context).textTheme.headline1.copyWith(
                     fontFamily: 'Poppins',

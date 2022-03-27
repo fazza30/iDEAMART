@@ -1,3 +1,5 @@
+// ignore_for_file: sdk_version_ui_as_code
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -9,6 +11,7 @@ class ForgotPassword extends StatelessWidget {
   final userController = Get.put(LoginController());
   @override
   Widget build(BuildContext context) {
+    final isKeyboard = MediaQuery.of(context).viewInsets.bottom != 0;
     return Form(
       autovalidateMode: AutovalidateMode.always,
       child: Scaffold(
@@ -33,7 +36,7 @@ class ForgotPassword extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text(
+                  if(!isKeyboard) Text(
                     'PEMULIHAN AKUN',
                     style: Theme.of(context).textTheme.headline1.copyWith(
                         fontFamily: 'Poppins',
