@@ -13,37 +13,23 @@ class Header extends StatelessWidget {
         mainAxisSize: MainAxisSize.max,
         children: [
           
-          // Title
-          Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'iDEAMART',
-                style: Theme.of(context).textTheme.headline1.copyWith(
-                  fontFamily: 'Poppins',
-                  fontSize: 30,
-                ),
-              ),
-              Text(
-                '.',
-                style: Theme.of(context).textTheme.headline1.copyWith(
-                  fontFamily: 'Poppins',
-                  color: Colors.red,
-                  fontSize: 35,
-                ),
-              ),
-            ],
+          // Image Icon
+          Image.asset(
+            "assets/images/logo-perusahaan.png",
+            width: 320,
           ),
           // End of Title
 
           // Subtitle
-          Text(
-            'Pasarnya ide, salurkan idemu agar membuat perubahan baru',
-            textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.bodyText1.copyWith(
-              fontFamily: 'Poppins',
-              fontSize: 14
+          Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
+            child: Text(
+              'Pasarnya ide, salurkan idemu agar membuat perubahan baru',
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.bodyText1.copyWith(
+                fontFamily: 'Poppins',
+                fontSize: 14
+              ),
             ),
           ),
           // End of Subtitle
