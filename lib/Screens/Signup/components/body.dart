@@ -82,7 +82,19 @@ class Body extends StatelessWidget {
                         ),
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
-                          child: Phone(phoneTextFieldController: txtPhoneController1,),
+                          child: Email(emailTextFieldController: txtPhoneController1),
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
+                          child: Statue()
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
+                          child: Hint()
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
+                          child: AnswerHint()
                         ),
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),

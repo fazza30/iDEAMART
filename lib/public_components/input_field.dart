@@ -1,4 +1,4 @@
-// ignore_for_file: use_key_in_widget_constructors, must_be_immutable, prefer_const_constructors, avoid_unnecessary_containers
+// ignore_for_file: use_key_in_widget_constructors, must_be_immutable, prefer_const_constructors, avoid_unnecessary_containers, unnecessary_statements
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -276,6 +276,170 @@ class Email extends StatelessWidget {
 }
 
 // -------------------------------------------------------------------------
+// Statue Field
+class Statue extends StatelessWidget {
+  
+  String _status;
+  List _statusList = [
+    "Mahasiswa",
+    "Alumni",
+    "Dosen",
+    "Staff",
+    "Umum"
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.max,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Status',
+          style: Theme.of(context).textTheme.bodyText1.copyWith(fontFamily: 'Poppins'),
+        ),
+        DropdownButtonFormField(
+          hint: Text("Pilih status Anda"),
+          value: _status,
+          items: _statusList.map((value) {
+            return DropdownMenuItem (
+              child: Text(value),
+              value: value,
+            );
+          }).toList(),
+          onChanged: (value) {
+           () {
+              _statusList = value;
+            };
+          },
+          decoration: InputDecoration(
+            enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: Colors.black,
+                width: 1,
+              ),
+              borderRadius: BorderRadius.circular(4),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: Colors.black,
+                width: 1,
+              ),
+              borderRadius: BorderRadius.circular(4),
+            ),
+          ),
+        )
+      ],
+    );
+  }
+}
+
+// -------------------------------------------------------------------------
+// Hint Field
+class Hint extends StatelessWidget {
+  String _qn;
+  List _qnList = [
+    "Apa makanan favoritmu?",
+    "Apa warna favoritmu?"
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.max,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Pertanyaan Keamanan',
+          style: Theme.of(context).textTheme.bodyText1.copyWith(fontFamily: 'Poppins'),
+        ),
+        DropdownButtonFormField(
+          hint: Text("Pilih pertanyaan Anda"),
+          value: _qn,
+          items: _qnList.map((value) {
+            return DropdownMenuItem (
+              child: Text(value),
+              value: value,
+            );
+          }).toList(),
+          onChanged: (value) {
+           () {
+              _qnList = value;
+            };
+          },
+          decoration: InputDecoration(
+            enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: Colors.black,
+                width: 1,
+              ),
+              borderRadius: BorderRadius.circular(4),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: Colors.black,
+                width: 1,
+              ),
+              borderRadius: BorderRadius.circular(4),
+            ),
+          ),
+        )
+      ],
+    );
+  }
+}
+
+// -------------------------------------------------------------------------
+// Answer Hint Field
+class AnswerHint extends StatelessWidget {
+  final userController = Get.put(
+      RegisterController());
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.max,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Jawaban Keamanan',
+          style: Theme.of(context).textTheme.bodyText1.copyWith(fontFamily: 'Poppins'),
+        ),
+        TextFormField(
+          controller: userController.usernameEditingController,
+          obscureText: false,
+          decoration: InputDecoration(
+            hintText: 'Tulis jawabanmu disini',
+            enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: Colors.black,
+                width: 1,
+              ),
+              borderRadius: BorderRadius.circular(4),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: Colors.black,
+                width: 1,
+              ),
+              borderRadius: BorderRadius.circular(4),
+            ),
+          ),
+          style: Theme.of(context).textTheme.bodyText1.copyWith(fontFamily: 'Poppins'),
+          keyboardType: TextInputType.text,
+          validator: (val) {
+            if (val.isEmpty) {
+              return 'Bagian ini harus diisi !';
+            }
+            return null;
+          },
+        ),
+      ],
+    );
+  }
+}
+
+// -------------------------------------------------------------------------
 // Username Field
 class Username extends StatelessWidget {
   final userController = Get.put(
@@ -288,7 +452,7 @@ class Username extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Username',
+          'Nama Pengguna',
           style: Theme.of(context).textTheme.bodyText1.copyWith(fontFamily: 'Poppins'),
         ),
         TextFormField(
@@ -338,7 +502,7 @@ class Password extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Password',
+          'Kata Sandi',
           style: Theme.of(context).textTheme.bodyText1.copyWith(fontFamily: 'Poppins'),
         ),
         Obx((() => TextFormField(
