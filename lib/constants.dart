@@ -1,5 +1,4 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+part of 'view.dart';
 
 const kPrimaryColor = Color(0xFF239BD8);
 const kPrimaryLightColor = Color(0xFFF1F3EB);

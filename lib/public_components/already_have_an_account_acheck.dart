@@ -1,11 +1,10 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_auth/constants.dart';
+part of 'package:flutter_auth/view.dart';
 
 class AlreadyHaveAnAccountCheck extends StatelessWidget {
   final bool login;
-  final Function press;
+  final VoidCallback? press;
   const AlreadyHaveAnAccountCheck({
-    Key key,
+    Key? key,
     this.login = true,
     this.press,
   }) : super(key: key);

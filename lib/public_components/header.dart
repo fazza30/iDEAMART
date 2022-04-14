@@ -1,34 +1,30 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_auth/Screens/Login/login_screen.dart';
-import 'package:flutter_auth/Screens/Profile/profile_screen.dart';
-import 'package:page_transition/page_transition.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+// ignore_for_file: override_on_non_overriding_member
+
+part of 'package:flutter_auth/view.dart';
 
 class Header extends StatefulWidget {
-  const Header({Key key}) : super(key: key);
-
   @override
   _HeaderState createState() => _HeaderState();
 }
 
 class _HeaderState extends State<Header> {
   String name = '';
-   @override
-  void initState(){
+   void initState(){
     super.initState();
-    _loadUserData();
+    // _loadUserData();
   }
 
-  _loadUserData() async{
-    SharedPreferences localStorage = await SharedPreferences.getInstance();
-    var user = localStorage.getString('username');
+  // _loadUserData() async{
+  //   SharedPreferences localStorage = await SharedPreferences.getInstance();
+  //   var user = localStorage.getString('username');
 
-    if(user != null) {
-      setState(() {
-        name = localStorage.getString('username');
-      });
-    }
-  }
+  //   if(user != null) {
+  //     setState(() {
+  //       name = localStorage.getString('username');
+  //     });
+  //   }
+  // }
+  
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -50,12 +46,9 @@ class _HeaderState extends State<Header> {
                 onTap: () async {
                   await Navigator.push(
                     context,
-                    PageTransition(
-                      type: PageTransitionType.fade,
-                      duration: Duration(milliseconds: 300),
-                      reverseDuration: Duration(milliseconds: 300),
-                      child: ProfileScreen(),
-                    ),
+                    MaterialPageRoute(
+                      builder: (context) => ProfileScreen(),
+                    )
                   );
                 },
                 child: ClipRRect(
@@ -74,17 +67,14 @@ class _HeaderState extends State<Header> {
                   onTap: () async {
                     await Navigator.push(
                       context,
-                      PageTransition(
-                        type: PageTransitionType.fade,
-                        duration: Duration(milliseconds: 300),
-                        reverseDuration: Duration(milliseconds: 300),
-                        child: ProfileScreen(),
-                      ),
+                      MaterialPageRoute(
+                        builder: (context) => ProfileScreen(),
+                      )
                     );
                   },
                   child: Text(
                     name,
-                    style:Theme.of(context).textTheme.bodyText1.copyWith(
+                    style:Theme.of(context).textTheme.bodyText1?.copyWith(
                           fontFamily: 'Poppins',
                           color: Colors.white,
                           fontSize: 18,
@@ -129,7 +119,7 @@ class _HeaderState extends State<Header> {
                               TextButton(
                                 onPressed: () async {
                                   Navigator.pop(alertDialogContext);
-                                  logout();
+                                  // logout();
                                   await Navigator.pushAndRemoveUntil(
                                     context,
                                     MaterialPageRoute(
@@ -160,10 +150,10 @@ class _HeaderState extends State<Header> {
     );
   }
 
-  void logout() async{
-    SharedPreferences localStorage = await SharedPreferences.getInstance();
-    localStorage.remove('username');
-    localStorage.remove('logintype');
-    localStorage.remove('token');
-  }
+  // void logout() async{
+  //   SharedPreferences localStorage = await SharedPreferences.getInstance();
+  //   localStorage.remove('username');
+  //   localStorage.remove('logintype');
+  //   localStorage.remove('token');
+  // }
 }

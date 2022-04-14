@@ -1,77 +1,42 @@
-// ignore_for_file: unused_local_variable
-
-import 'package:flutter/cupertino.dart';
-import 'package:flutter_auth/Screens/Login/login_screen.dart';
-import 'package:flutter_auth/Screens/WelcomeScreen/welcome_screen.dart';
-import 'package:get/get.dart';
-import 'package:flutter_auth/models/Register_model.dart';
-import 'package:flutter_auth/services/register_service.dart';
+part of 'controller.dart';
 
 class RegisterController extends GetxController {
-  //final listUser = <ListUser>[].obs;
-  //inisialisasi hide password dalam bentuk obs
-  var txtPasswordVisibility = true.obs;
-  final createUser = CreateUser(status: "", msg: "").obs;
-  final TextEditingController firstnameEditingController =
-      TextEditingController();
-  final TextEditingController lastnameEditingController =
-      TextEditingController();
-  final TextEditingController usernameEditingController =
-      TextEditingController();
-  final TextEditingController passwordEditingController =
-      TextEditingController();
 
-  //final TextEditingController logintypeController = TextEditingController();
+  final TextEditingController firstname = TextEditingController();
+  final TextEditingController lastname = TextEditingController();
+  final TextEditingController email = TextEditingController();
+  final TextEditingController profesi = TextEditingController();
+  final TextEditingController pertanyaan = TextEditingController();
+  final TextEditingController validasi = TextEditingController();
+  final TextEditingController username = TextEditingController();
+  final TextEditingController password = TextEditingController();
 
-  void registerDataUser() async {
+
+  void handleRegister() async{
     try {
-      var response = await RegisterService.createNewUser(
-          firstnameEditingController.text,
-          lastnameEditingController.text,
-          usernameEditingController.text,
-          passwordEditingController.text);
-      Get.to(() => WelcomeScreen());
-    } catch (e) {
-      Get.to(() => LoginScreen());
+      var response = await UserService.registerUser(firstname.text, lastname.text, email.text, profesi.text, pertanyaan.text, validasi.text, username.text, password.text);
+      if(response.value.status){
+        Get.snackbar("Information", "${response.value.message}", backgroundColor: Colors.blueAccent, colorText: Colors.white);
+        Get.to(() => LoginScreen());
+        clearInput();
+      } else {
+        Get.snackbar("Information", "${response.value.message}", backgroundColor: Colors.redAccent, colorText: Colors.white);
+      }
+    }catch(e){
       print(e);
     }
   }
 
-/*
-  void loginDataUser() async{
-    try {
 
-      var response = await UserService.createNewUser(
-          firstnameEditingController.text,
-          lastnameEditingController.text,
-          phoneEditingController.text,
-          passwordEditingController.text);
-      Get.back();
-    } catch (e) {
-      print(e);
-    }
-  }*/
-/*
-  void loginDataUser() async {
-    try {
-      print('response.msgggwr');
-      var response = await UserService.loginUser(
-          phoneEditingController.text, passwordEditingController.text);
-      print('response. msg');
-      Get.back();
-    } catch (e) {
-      print(e);
-    }
+  void handleBackToLogin(){
+    clearInput();
+    Get.to(() => LoginScreen());
   }
 
-  void readUser() async {
-    try {
-      var response = await UserService.readUser();
-      listUser.value = response.listUser;
-    } catch (e) {
-      print(e);
-    }
+  void clearInput(){
+    firstname.clear();
+    lastname.clear();
+    username.clear();
+    password.clear();
   }
-*/
-
 }

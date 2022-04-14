@@ -1,19 +1,19 @@
-// ignore_for_file: use_key_in_widget_constructors, must_be_immutable, prefer_const_constructors, avoid_unnecessary_containers, unnecessary_statements
+// ignore_for_file: must_be_immutable
 
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+part of 'package:flutter_auth/view.dart';
 
-import '../controllers/register_controller.dart';
+class InputTextFields extends StatelessWidget {
+  TextEditingController textInputController;
+  TextInputType keyboardType;
+  String title, hint;
 
-// -------------------------------------------------------------------------
-// FirstName Field
-class FirstName extends StatelessWidget {
-  FirstName({
-    Key key,
-    @required this.firstNameTextFieldController,
+  InputTextFields({ 
+    Key? key,
+    required this.textInputController,
+    required this.title,
+    required this.hint,
+    required this.keyboardType
   }) : super(key: key);
-
-  final TextEditingController firstNameTextFieldController;
 
   @override
   Widget build(BuildContext context) {
@@ -22,52 +22,46 @@ class FirstName extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Nama Depan',
-          style: Theme.of(context).textTheme.bodyText1.copyWith(fontFamily: 'Poppins'),
+          title,
+          style: Theme.of(context).textTheme.bodyText1
         ),
         TextFormField(
-          controller: firstNameTextFieldController,
-          obscureText: false,
+          controller: textInputController,
           decoration: InputDecoration(
-            hintText: 'Mis: John',
+            hintText: hint,
             enabledBorder: OutlineInputBorder(
               borderSide: BorderSide(
                 color: Colors.black,
-                width: 1,
+                width: 1
               ),
-              borderRadius: BorderRadius.circular(4),
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(
-                color: Colors.black,
-                width: 1,
-              ),
-              borderRadius: BorderRadius.circular(4),
-            ),
+              borderRadius: BorderRadius.circular(4)
+            )
           ),
-          style: Theme.of(context).textTheme.bodyText1.copyWith(fontFamily: 'Poppins'),
-          keyboardType: TextInputType.name,
+          style: Theme.of(context).textTheme.bodyText1,
+          keyboardType: keyboardType,
           validator: (val) {
-            if (val.isEmpty) {
-              return 'Bagian ini harus diisi !';
+            if (val!.isEmpty) {
+              return 'Bagian ini harus diisi!';
             }
             return null;
           },
-        ),
+        )
       ],
     );
   }
 }
 
-// -------------------------------------------------------------------------
-// LastName Field
-class LastName extends StatelessWidget {
-  LastName({
-    Key key,
-    @required this.lastNameTextFieldController,
-  }) : super(key: key);
+class InputPasswordFields extends StatelessWidget {
+  bool passwordVisibility = true;
+  TextEditingController textPasswordController;
+  String title, hint;
 
-  final TextEditingController lastNameTextFieldController;
+  InputPasswordFields({
+    Key? key,
+    required this.textPasswordController,
+    required this.title,
+    required this.hint
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -76,200 +70,46 @@ class LastName extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Nama Belakang',
-          style: Theme.of(context).textTheme.bodyText1.copyWith(fontFamily: 'Poppins'),
+          title,
+          style: Theme.of(context).textTheme.bodyText1
         ),
         TextFormField(
-          controller: lastNameTextFieldController,
-          obscureText: false,
+          controller: textPasswordController,
+          obscureText: passwordVisibility,
           decoration: InputDecoration(
-            hintText: 'Mis: Doe',
+            hintText: hint,
             enabledBorder: OutlineInputBorder(
               borderSide: BorderSide(
                 color: Colors.black,
-                width: 1,
-              ),
-              borderRadius: BorderRadius.circular(4),
+                width: 1
+              )
             ),
             focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(
                 color: Colors.black,
-                width: 1,
-              ),
-              borderRadius: BorderRadius.circular(4),
+                width: 1
+              )
             ),
+            suffixIcon: IconButton(
+              icon: Icon(
+                passwordVisibility ? Icons.visibility : Icons.visibility_off
+              ),
+              onPressed: () {
+                (() {
+                  passwordVisibility = !passwordVisibility;
+                });
+              },
+            )
           ),
-          style: Theme.of(context).textTheme.bodyText1.copyWith(fontFamily: 'Poppins'),
-          keyboardType: TextInputType.name,
-          validator: (val) {
-            if (val.isEmpty) {
-              return 'Bagian ini harus diisi !';
-            }
-            return null;
-          },
-        ),
-      ],
-    );
-  }
-}
-
-// -------------------------------------------------------------------------
-// Phone Field
-class Phone extends StatelessWidget {
-  Phone({
-    Key key,
-    @required this.phoneTextFieldController,
-  }) : super(key: key);
-
-  final TextEditingController phoneTextFieldController;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.max,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          'No. Telepon',
-          style: Theme.of(context).textTheme.bodyText1.copyWith(fontFamily: 'Poppins'),
-        ),
-        TextFormField(
-          controller: phoneTextFieldController,
-          obscureText: false,
-          decoration: InputDecoration(
-            hintText: 'Masukkan nomor telepon Anda',
-            enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(
-                color: Colors.black,
-                width: 1,
-              ),
-              borderRadius: BorderRadius.circular(4),
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(
-                color: Colors.black,
-                width: 1,
-              ),
-              borderRadius: BorderRadius.circular(4),
-            ),
-          ),
-          style: Theme.of(context).textTheme.bodyText1.copyWith(fontFamily: 'Poppins'),
-          keyboardType: TextInputType.phone,
-          validator: (val) {
-            if (val.isEmpty) {
-              return 'Bagian ini harus diisi !';
-            }
-            return null;
-          },
-        ),
-      ],
-    );
-  }
-}
-
-// -------------------------------------------------------------------------
-// Jobs Field
-class Jobs extends StatelessWidget {
-  Jobs({
-    Key key,
-    @required this.jobsTextFieldController,
-  }) : super(key: key);
-
-  final TextEditingController jobsTextFieldController;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.max,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          'Pekerjaan',
-          style: Theme.of(context).textTheme.bodyText1.copyWith(fontFamily: 'Poppins'),
-        ),
-        TextFormField(
-          controller: jobsTextFieldController,
-          obscureText: false,
-          decoration: InputDecoration(
-            hintText: 'Masukkan pekerjaan Anda',
-            enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(
-                color: Colors.black,
-                width: 1,
-              ),
-              borderRadius: BorderRadius.circular(4),
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(
-                color: Colors.black,
-                width: 1,
-              ),
-              borderRadius: BorderRadius.circular(4),
-            ),
-          ),
-          style: Theme.of(context).textTheme.bodyText1.copyWith(fontFamily: 'Poppins'),
+          style: Theme.of(context).textTheme.bodyText1,
           keyboardType: TextInputType.text,
           validator: (val) {
-            if (val.isEmpty) {
-              return 'Bagian ini harus diisi !';
+            if (val!.isEmpty) {
+              return 'Bagian ini harus diisi!';
             }
             return null;
           },
-        ),
-      ],
-    );
-  }
-}
-
-// -------------------------------------------------------------------------
-// Email Field
-class Email extends StatelessWidget {
-  Email({
-    Key key,
-    @required this.emailTextFieldController,
-  }) : super(key: key);
-
-  final TextEditingController emailTextFieldController;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.max,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          'Email',
-          style: Theme.of(context).textTheme.bodyText1.copyWith(fontFamily: 'Poppins'),
-        ),
-        TextFormField(
-          controller: emailTextFieldController,
-          obscureText: false,
-          decoration: InputDecoration(
-            hintText: 'Masukkan email Anda',
-            enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(
-                color: Colors.black,
-                width: 1,
-              ),
-              borderRadius: BorderRadius.circular(4),
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(
-                color: Colors.black,
-                width: 1,
-              ),
-              borderRadius: BorderRadius.circular(4),
-            ),
-          ),
-          style: Theme.of(context).textTheme.bodyText1.copyWith(fontFamily: 'Poppins'),
-          keyboardType: TextInputType.emailAddress,
-          validator: (val) {
-            if (val.isEmpty) {
-              return 'Bagian ini harus diisi !';
-            }
-            return null;
-          },
-        ),
+        )
       ],
     );
   }
@@ -279,7 +119,7 @@ class Email extends StatelessWidget {
 // Statue Field
 class Statue extends StatelessWidget {
   
-  String _status;
+  String? _status;
   List _statusList = [
     "Mahasiswa",
     "Alumni",
@@ -296,7 +136,7 @@ class Statue extends StatelessWidget {
       children: [
         Text(
           'Status',
-          style: Theme.of(context).textTheme.bodyText1.copyWith(fontFamily: 'Poppins'),
+          style: Theme.of(context).textTheme.bodyText1?.copyWith(fontFamily: 'Poppins'),
         ),
         DropdownButtonFormField(
           hint: Text("Pilih status Anda"),
@@ -308,8 +148,9 @@ class Statue extends StatelessWidget {
             );
           }).toList(),
           onChanged: (value) {
+           // ignore: unnecessary_statements
            () {
-              _statusList = value;
+              // _statusList = value;
             };
           },
           decoration: InputDecoration(
@@ -328,6 +169,12 @@ class Statue extends StatelessWidget {
               borderRadius: BorderRadius.circular(4),
             ),
           ),
+          validator: (val) {
+            if (val == null) {
+              return 'Pilih salah satu!';
+            }
+            return null;
+          },
         )
       ],
     );
@@ -337,7 +184,7 @@ class Statue extends StatelessWidget {
 // -------------------------------------------------------------------------
 // Hint Field
 class Hint extends StatelessWidget {
-  String _qn;
+  String? _qn;
   List _qnList = [
     "Apa makanan favoritmu?",
     "Apa warna favoritmu?"
@@ -351,7 +198,7 @@ class Hint extends StatelessWidget {
       children: [
         Text(
           'Pertanyaan Keamanan',
-          style: Theme.of(context).textTheme.bodyText1.copyWith(fontFamily: 'Poppins'),
+          style: Theme.of(context).textTheme.bodyText1?.copyWith(fontFamily: 'Poppins'),
         ),
         DropdownButtonFormField(
           hint: Text("Pilih pertanyaan Anda"),
@@ -363,8 +210,9 @@ class Hint extends StatelessWidget {
             );
           }).toList(),
           onChanged: (value) {
+           // ignore: unnecessary_statements
            () {
-              _qnList = value;
+              // _qnList = value;
             };
           },
           decoration: InputDecoration(
@@ -383,107 +231,13 @@ class Hint extends StatelessWidget {
               borderRadius: BorderRadius.circular(4),
             ),
           ),
+          validator: (val) {
+            if (val == null) {
+              return 'Pilih salah satu!';
+            }
+            return null;
+          },
         )
-      ],
-    );
-  }
-}
-
-// -------------------------------------------------------------------------
-// Answer Hint Field
-class AnswerHint extends StatelessWidget {
-  final userController = Get.put(
-      RegisterController());
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.max,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          'Jawaban Keamanan',
-          style: Theme.of(context).textTheme.bodyText1.copyWith(fontFamily: 'Poppins'),
-        ),
-        TextFormField(
-          controller: userController.usernameEditingController,
-          obscureText: false,
-          decoration: InputDecoration(
-            hintText: 'Tulis jawabanmu disini',
-            enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(
-                color: Colors.black,
-                width: 1,
-              ),
-              borderRadius: BorderRadius.circular(4),
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(
-                color: Colors.black,
-                width: 1,
-              ),
-              borderRadius: BorderRadius.circular(4),
-            ),
-          ),
-          style: Theme.of(context).textTheme.bodyText1.copyWith(fontFamily: 'Poppins'),
-          keyboardType: TextInputType.text,
-          validator: (val) {
-            if (val.isEmpty) {
-              return 'Bagian ini harus diisi !';
-            }
-            return null;
-          },
-        ),
-      ],
-    );
-  }
-}
-
-// -------------------------------------------------------------------------
-// Username Field
-class Username extends StatelessWidget {
-  final userController = Get.put(
-      RegisterController());
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.max,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          'Nama Pengguna',
-          style: Theme.of(context).textTheme.bodyText1.copyWith(fontFamily: 'Poppins'),
-        ),
-        TextFormField(
-          controller: userController.usernameEditingController,
-          obscureText: false,
-          decoration: InputDecoration(
-            hintText: 'Masukkan username Anda',
-            enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(
-                color: Colors.black,
-                width: 1,
-              ),
-              borderRadius: BorderRadius.circular(4),
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(
-                color: Colors.black,
-                width: 1,
-              ),
-              borderRadius: BorderRadius.circular(4),
-            ),
-          ),
-          style: Theme.of(context).textTheme.bodyText1.copyWith(fontFamily: 'Poppins'),
-          keyboardType: TextInputType.text,
-          validator: (val) {
-            if (val.isEmpty) {
-              return 'Bagian ini harus diisi !';
-            }
-            return null;
-          },
-        ),
       ],
     );
   }
@@ -503,11 +257,11 @@ class Password extends StatelessWidget {
       children: [
         Text(
           'Kata Sandi',
-          style: Theme.of(context).textTheme.bodyText1.copyWith(fontFamily: 'Poppins'),
+          style: Theme.of(context).textTheme.bodyText1?.copyWith(fontFamily: 'Poppins'),
         ),
         Obx((() => TextFormField(
-              controller: userController.passwordEditingController,
-              obscureText: userController.txtPasswordVisibility.value,
+              // controller: userController.passwordEditingController,
+              // obscureText: userController.txtPasswordVisibility.value,
               decoration: InputDecoration(
                 hintText: 'Masukkan password Anda',
                 enabledBorder: OutlineInputBorder(
@@ -526,85 +280,21 @@ class Password extends StatelessWidget {
                 ),
                 suffixIcon: InkWell(
                   onTap: () {
-                    userController.txtPasswordVisibility.value =
-                      !userController.txtPasswordVisibility.value;
+                    // userController.txtPasswordVisibility.value =
+                    //   !userController.txtPasswordVisibility.value;
                   },
                   child: Icon(
-                    userController.txtPasswordVisibility.value
-                        ? Icons.visibility_outlined
-                        : Icons.visibility_off_outlined,
+                    // userController.txtPasswordVisibility.value
+                        /*?*/ Icons.visibility_outlined,
+                        // : Icons.visibility_off_outlined,
                     color: Color(0xFF757575),
                     size: 22,
                   ),
                 ),
               ),
-              style: Theme.of(context).textTheme.bodyText1.copyWith(fontFamily: 'Poppins'),
+              style: Theme.of(context).textTheme.bodyText1?.copyWith(fontFamily: 'Poppins'),
               validator: (val) {
-                if (val.isEmpty) {
-                  return 'Bagian ini harus diisi !';
-                }
-                return null;
-              },
-            )
-          )
-        )
-      ],
-    );
-  }
-}
-
-// -------------------------------------------------------------------------
-// Confirm Password Field
-class CPassword extends StatelessWidget {
-  final userController = Get.put(
-      RegisterController()); //inisialisasi menggunakan get dari RegisterController
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.max,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          'Konfirmasi Password',
-          style: Theme.of(context).textTheme.bodyText1.copyWith(fontFamily: 'Poppins'),
-        ),
-        Obx((() => TextFormField(
-              controller: userController.passwordEditingController,
-              obscureText: userController.txtPasswordVisibility.value,
-              decoration: InputDecoration(
-                hintText: 'Masukkan password Anda',
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Colors.black,
-                    width: 1,
-                  ),
-                  borderRadius: BorderRadius.circular(4),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Colors.black,
-                    width: 1,
-                  ),
-                  borderRadius: BorderRadius.circular(4),
-                ),
-                suffixIcon: InkWell(
-                  onTap: () {
-                    userController.txtPasswordVisibility.value =
-                      !userController.txtPasswordVisibility.value;
-                  },
-                  child: Icon(
-                    userController.txtPasswordVisibility.value
-                        ? Icons.visibility_outlined
-                        : Icons.visibility_off_outlined,
-                    color: Color(0xFF757575),
-                    size: 22,
-                  ),
-                ),
-              ),
-              style: Theme.of(context).textTheme.bodyText1.copyWith(fontFamily: 'Poppins'),
-              validator: (val) {
-                if (val.isEmpty) {
+                if (val!.isEmpty) {
                   return 'Bagian ini harus diisi !';
                 }
                 return null;

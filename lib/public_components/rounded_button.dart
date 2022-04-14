@@ -1,16 +1,13 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_auth/constants.dart';
-import 'package:get/get.dart';
-import 'package:flutter_auth/controllers/user_controller.dart';
+part of 'package:flutter_auth/view.dart';
 
 class RoundedButton extends StatelessWidget {
-  final UserController userController = Get.put(UserController());
+  final WelcomeController welcomeController = Get.put(WelcomeController());
   final String text;
-  final Function press;
+  final VoidCallback? press;
   final Color color, textColor;
   RoundedButton({
-    Key key,
-    this.text,
+    Key? key,
+    required this.text,
     this.press,
     this.color = kPrimaryColor,
     this.textColor = Colors.white,
@@ -35,8 +32,8 @@ class RoundedButton extends StatelessWidget {
         style: TextStyle(color: textColor),
       ),
       onPressed: () {
-        userController.createDataUser();
-        press();
+        welcomeController.handleToLogin();
+        press!();
       },
       style: ElevatedButton.styleFrom(
           primary: color,

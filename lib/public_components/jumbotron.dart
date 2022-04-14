@@ -1,8 +1,6 @@
-import 'package:flutter/material.dart';
+part of 'package:flutter_auth/view.dart';
 
 class Jumbotron extends StatefulWidget {
-  const Jumbotron({Key key}) : super(key: key);
-
   @override
   _JumbotronState createState() => _JumbotronState();
 }

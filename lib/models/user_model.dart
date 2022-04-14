@@ -1,77 +1,130 @@
 // ignore_for_file: non_constant_identifier_names
 
-class CreateUser {
-  String msg;
-  ResponseCreateUser responseCreateUser;
+part of 'model.dart';
 
-  CreateUser({this.msg, this.responseCreateUser});
+// class UserForget {
+//   int id_user;
+//   UserForget({required this.id_user});
+//
+//   factory UserForget.fromJson(Map<String, dynamic> json){
+//     return UserForget(
+//         id_user: json["id_user"],
+//     );
+//   }
+// }
 
-  factory CreateUser.fromJson(Map<String, dynamic> json) {
-    return CreateUser(
-        msg: json["msg"],
-        responseCreateUser: ResponseCreateUser.fromJson(json["user"]));
+class UserUpdatePasswordSuccess {
+  bool status;
+  String message;
+
+  UserUpdatePasswordSuccess({required this.message, required this.status});
+
+  factory UserUpdatePasswordSuccess.fromJson(Map<String, dynamic> json){
+    return UserUpdatePasswordSuccess(message: json["message"], status: json["status"]);
+  }
+}
+class UserUpdatePasswordError {
+  bool status;
+  String message;
+  UserUpdatePasswordError({required this.message, required this.status});
+
+  factory UserUpdatePasswordError.fromJson(Map<String, dynamic> json){
+    return UserUpdatePasswordError(message: json["message"], status: json["status"]);
   }
 }
 
-class ResponseCreateUser {
-  String id;
-  String first_name;
-  String last_name;
-  String username;
-  String password;
-  String login_type;
+class UserUpdateProfileSuccess {
+  bool status;
+  String message;
+  UserUpdateProfileSuccess({required this.message, required this.status});
 
-  ResponseCreateUser(
-      {this.id,
-      this.first_name,
-      this.last_name,
-      this.username,
-      this.password,
-      this.login_type});
-
-  factory ResponseCreateUser.fromJson(Map<String, dynamic> json) {
-    return ResponseCreateUser(
-        id: json["id"],
-        first_name: json["first_name"],
-        last_name: json["last_name"],
-        username: json["username"],
-        password: json["password"],
-        login_type: json["login_type"]);
+  factory UserUpdateProfileSuccess.fromJson(Map<String, dynamic> json){
+    return UserUpdateProfileSuccess(message: json["message"], status: json["status"]);
   }
 }
 
-class ResponseSuccessLogin {
-  String token;
-  ResponseDataUser responseDataUser;
-  ResponseSuccessLogin({this.token, this.responseDataUser});
+class UserUpdateProfileError {
+  bool status;
+  String message;
+  UserUpdateProfileError({required this.message, required this.status});
 
-  factory ResponseSuccessLogin.fromJson(Map<String, dynamic> parsedJson) {
-    return ResponseSuccessLogin(
-        token: parsedJson['token'],
-        responseDataUser: ResponseDataUser.fromJson(parsedJson['user']));
+  factory UserUpdateProfileError.fromJson(Map<String, dynamic> json){
+    return UserUpdateProfileError(message: json["message"], status: json["status"]);
   }
 }
 
-class ResponseDataUser {
-  String id;
-  String username;
+class UserRegisterError {
+  bool status;
+  String message;
+  UserRegisterError({required this.message, required this.status});
+
+  factory UserRegisterError.fromJson(Map<String, dynamic> json){
+    return UserRegisterError(message: json["message"], status: json["status"]);
+  }
+}
+
+class UserRegisterSuccess {
+  bool status;
+  String message;
+  UserRegisterSuccess({required this.message, required this.status});
+
+  factory UserRegisterSuccess.fromJson(Map<String, dynamic> json){
+    return UserRegisterSuccess(message: json["message"], status: json["status"]);
+  }
+}
+
+class User {
+  int id_user;
+  String firstname;
+  String lastname;
+  String phone;
   String email;
+  String username;
+  String profesi;
+  int id_role;
+  String profile_picture;
+  String validasi;
+  String pertanyaan;
 
-  ResponseDataUser({this.id, this.username, this.email});
+  User({required this.username, required this.email, required this.firstname, required this.phone, required this.lastname, required this.id_role, required this.id_user, required this.profesi, required this.profile_picture, required this.validasi, required this.pertanyaan});
 
-  factory ResponseDataUser.fromJson(Map<String, dynamic> json) {
-    return ResponseDataUser(
-        id: json["_id"], username: json["name"], email: json["email"]);
+  factory User.fromJson(Map<String, dynamic> json){
+    return User(
+        username: json["username"],
+        email: json["email"],
+        firstname: json["firstname"],
+        phone: json["phone"],
+        lastname: json["lastname"],
+        id_role: json["id_role"],
+        id_user: json["id_user"],
+        profesi: json["profesi"],
+        profile_picture: json["profile_picture"],
+        validasi: json["validasi"],
+        pertanyaan: json["pertanyaan"]
+    );
   }
 }
 
-class ResponseSuccessError {
-  String msg;
-  ResponseSuccessError({this.msg});
+class UserLoginSuccess {
+  bool status;
+  String message;
+  String token;
+  User user;
 
-  factory ResponseSuccessError.fromJson(Map<String, dynamic> parsedJson) {
-    return ResponseSuccessError(
-      msg: parsedJson['msg'],
-    );
+  UserLoginSuccess({required this.status, required this.message, required this.token, required this.user});
+
+  factory UserLoginSuccess.fromJson(Map<String, dynamic> json){
+    return UserLoginSuccess(status: json["status"], message: json["message"], token: json["token"], user: User.fromJson(json["user"]));
+  }
+}
+
+class UserLoginError {
+  bool status;
+  String message;
+
+  UserLoginError({required this.status, required this.message});
+
+  factory UserLoginError.fromJson(Map<String, dynamic> json){
+    return UserLoginError(status: json["status"], message: json["message"]);
   }
 }

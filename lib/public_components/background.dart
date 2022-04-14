@@ -1,9 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+part of 'package:flutter_auth/view.dart';
 
 class Background extends StatefulWidget {
-  const Background({Key key}) : super(key: key);
-
   @override
   _BackgroundState createState() => _BackgroundState();
 }
