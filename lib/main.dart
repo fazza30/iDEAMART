@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.white,
         textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme)
       ),
-      // home: WelcomeScreen(),
+      home: WelcomeScreen(),
       // home: ResultScreen(),
       // home: ForgotPassword()
       // home: LoginScreen(),

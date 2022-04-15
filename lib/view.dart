@@ -5,6 +5,8 @@ import 'package:pie_chart/pie_chart.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:flutter_auth/controllers/controller.dart';
 
+import 'models/model.dart';
+
 part './public_components/already_have_an_account_acheck.dart';
 part './public_components/header.dart';
 part './public_components/background.dart';
